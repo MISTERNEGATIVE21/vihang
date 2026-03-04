@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   backend:
-    build: .
+    image: ghcr.io/misternegative21/vihang:sha-bf451c5
     container_name: vihang_backend
     ports:
       - "5000:5000"
