@@ -24,8 +24,8 @@ COPY . .
 # Copy Caddyfile
 COPY Caddyfile /etc/caddy/Caddyfile
 
-# Expose HTTP, HTTPS, and backend ports
+# Expose HTTP and HTTPS ports
 EXPOSE 80 443
 
-# Start script: run both Caddy and the backend
+# Start Caddy + Node backend
 CMD ["sh", "-c", "cd /app/backend && node server.js & caddy run --config /etc/caddy/Caddyfile --adapter caddyfile"]

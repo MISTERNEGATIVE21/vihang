@@ -3,16 +3,21 @@ version: '3.8'
 services:
 
   backend:
-    image: ghcr.io/misternegative21/vihang:sha-bf451c5
-    container_name: vihang_backend
+    image: ghcr.io/misternegative21/vihang:latest
+    container_name: vihang_app
     ports:
-      - "5000:5000"
+      - "80:80"
+      - "443:443"
     environment:
       - PORT=5000
       - MONGODB_URI=mongodb://mongo:27017/vihang
       - JWT_SECRET=supersecret123 # Replace with a strong secret in production
+      - DOMAIN=localhost # Set to your domain for SSL, e.g. vihang.yourdomain.com
     depends_on:
       - mongo
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
     restart: unless-stopped
 
   mongo:
@@ -26,3 +31,5 @@ services:
 
 volumes:
   mongodb_data:
+  caddy_data:
+  caddy_config:
