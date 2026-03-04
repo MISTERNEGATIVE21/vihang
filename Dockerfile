@@ -1,19 +1,12 @@
 FROM node:slim
 
-# Install Caddy
-RUN apt-get update && apt-get install -y curl debian-keyring debian-archive-keyring apt-transport-https && \
-    curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg && \
-    curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | tee /etc/apt/sources.list.d/caddy-stable.list && \
-    apt-get update && apt-get install -y caddy && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
-
 # Set working directory
 WORKDIR /app
 
 # Copy package files first for better caching
 COPY backend/package*.json ./backend/
 
-# Install backend dependencies
+# Install dependencies
 WORKDIR /app/backend
 RUN npm install
 
@@ -21,11 +14,11 @@ RUN npm install
 WORKDIR /app
 COPY . .
 
-# Copy Caddyfile
-COPY Caddyfile /etc/caddy/Caddyfile
+# Expose port 80
+EXPOSE 80
 
-# Expose HTTP, HTTPS, and backend ports
-EXPOSE 80 443
+# Set the working directory for the command execution
+WORKDIR /app/backend
 
-# Start script: run both Caddy and the backend
-CMD ["sh", "-c", "cd /app/backend && node server.js & caddy run --config /etc/caddy/Caddyfile --adapter caddyfile"]
+# Run the backend
+CMD ["npm", "start"]
