@@ -8,11 +8,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    environment:
-      - PORT=5000
-      - MONGODB_URI=mongodb://mongo:27017/vihang
-      - JWT_SECRET=supersecret123 # Replace with a strong secret in production
-      - DOMAIN=localhost # Set to your domain for SSL, e.g. vihang.yourdomain.com
+    env_file:
+      - .env
     depends_on:
       - mongo
     volumes:
