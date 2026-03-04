@@ -612,9 +612,9 @@ body {
 }
 
 .social-icon:hover {
-    background: transparent;
-    border-color: #ff5e00;
-    color: #ff5e00;
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #000000;
+    color: #ffffff;
     /* Changes stroke to orange via currentColor */
 }
 
@@ -871,7 +871,7 @@ body {
    ============================================ */
 .events-strip-section {
     padding: 60px 0 50px;
-    background: #e7e7e7;
+    background: #e4e6e7;
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -1222,7 +1222,7 @@ body {
 
 .leaderboard-section {
     padding: 60px 0;
-    background: white;
+    background-color: #e4e6e7;
 }
 
 .leaderboard-section h2,
@@ -1230,14 +1230,14 @@ body {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 2rem;
-    color: var(--text-dark);
+    color: black;
 }
 
 .leaderboard {
-    background: white;
+    background: rgb(255, 255, 255);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: var(--shadow);
+    box-shadow: black;
 }
 
 .leaderboard-table {
@@ -1246,13 +1246,14 @@ body {
 }
 
 .leaderboard-table thead {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: rgb(242, 241, 241);
+    color: rgb(20, 19, 19);
+
 }
 
 .leaderboard-table th {
     padding: 1.5rem;
-    text-align: left;
+    text-align: center;
     font-weight: 600;
 }
 
@@ -1272,20 +1273,37 @@ body {
 
 .leaderboard-table .rank {
     font-weight: bold;
-    color: var(--primary-color);
+    color: black;
     font-size: 1.2rem;
     text-align: center;
 }
 
 .leaderboard-table .club-name-cell {
     font-weight: 600;
-    color: var(--text-dark);
+    color: black;
+    text-align: center;
+}
+
+/* Club capsule between rank and name */
+.club-capsule-cell {
+    width: 30px;
+    max-width: 30px;
+    padding: 0.75rem 4px !important;
+    text-align: center;
+}
+
+.club-capsule {
+    width: 14px;
+    height: 50px;
+    border-radius: 999px;
+    margin: 0 auto;
 }
 
 .leaderboard-table .points {
     font-weight: bold;
-    color: var(--primary-color);
+    color: black;
     font-size: 1.1rem;
+    text-align: center;
 }
 
 /* ============================================
@@ -1331,7 +1349,7 @@ body {
 }
 
 .tab-btn.active {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: black;
     color: white;
     border-color: transparent;
 }
@@ -1424,7 +1442,7 @@ body {
     background: #fff;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     transition: border-color 0.3s ease;
     color: var(--text-dark);
 }
@@ -1476,6 +1494,7 @@ body {
     transition: background 0.15s ease;
     border-bottom: 1px solid #f0f0f0;
     color: var(--text-dark);
+    text-align: center;
 }
 
 .custom-dropdown-option:last-child {
@@ -2787,7 +2806,8 @@ body {
    ============================================ */
 
 .team-page-section {
-    padding: 10px 0 60px;
+    padding: 5px 0 100px;
+    
 }
 
 .team-page-title {
@@ -2795,7 +2815,8 @@ body {
     font-size: 2.8rem;
     font-weight: 800;
     color: #080808;
-    margin-bottom: 0.5rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
     text-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
 }
 
@@ -2803,11 +2824,11 @@ body {
     text-align: center;
     font-size: 1.1rem;
     color: rgba(255, 255, 255, 0.6);
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
 }
 
 .team-category {
-    margin-bottom: 3.5rem;
+    margin-bottom: 2rem;
 }
 
 .team-category-title {
@@ -2830,9 +2851,9 @@ body {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-color: #000000;
     border-radius: 2px;
-    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+    box-shadow: 0 0 10px rgba(209, 209, 209, 0.5);
 }
 
 .team-row {
@@ -2864,16 +2885,16 @@ body {
     height: 240px;
     border-radius: 16px;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 30px rgba(114, 114, 114, 0.4);
     margin-bottom: 1rem;
-    border: 2px solid rgba(102, 126, 234, 0.25);
+    border: 2px solid rgba(66, 66, 66, 0.25);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .team-member-card:hover .team-member-img-wrap {
-    border-color: #667eea;
-    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.35);
+    border-color:#e4e6e7;
+    box-shadow: 0 12px 35px rgba(220, 220, 220, 0.35);
 }
 
 .team-member-img {
@@ -2885,6 +2906,7 @@ body {
 
 .team-member-details {
     padding: 0 0.25rem;
+   
 }
 
 .team-member-name {
@@ -2895,9 +2917,9 @@ body {
 }
 
 .team-member-role {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(0, 0, 0, 0.55);
 }
 
 /* Featured secretary card */
@@ -2909,8 +2931,8 @@ body {
     width: 200px;
     height: 200px;
     border-radius: 20px;
-    border-color: #667eea;
-    box-shadow: 0 10px 35px rgba(102, 126, 234, 0.3);
+    border-color: #e4e6e7;
+    box-shadow: 0 10px 35px rgba(229, 229, 229, 0.3);
 }
 
 .team-member-featured .team-member-name {
@@ -2919,7 +2941,7 @@ body {
 
 .team-member-featured .team-member-role {
     font-size: 0.9rem;
-    color: #8ea4f0;
+    color: rgba(0, 0, 0, 0.55);
 }
 
 @media (max-width: 768px) {

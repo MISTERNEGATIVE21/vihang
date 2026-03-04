@@ -1,6 +1,20 @@
 
 const API_BASE_URL = 'https://vihang-woya.onrender.com/api';
 
+// Gradient colors for club capsules (edit these to change capsule colors)
+const clubGradients = {
+    "Agni":         "linear-gradient(200deg, #ffcc91,rgb(244, 42, 42))",
+    "Hydro Heros":  "linear-gradient(180deg, #b1f8fd, #2002b7)",
+    "Prithvi":      "linear-gradient(180deg, #eadcc8, #814402)",
+    "Vayu":         "linear-gradient(180deg, #87CEEB, #54a0ff)",
+    "Ether Rockz":  "linear-gradient(180deg, #483D8B, #6c5ce7)",
+};
+
+// Helper to get gradient for a club name (falls back to solid color)
+function getClubGradient(clubName, fallbackColor) {
+    return clubGradients[clubName] || fallbackColor || '#ccc';
+}
+
 // Clubs data will be fetched from backend
 let clubs = [];
 
@@ -13,11 +27,61 @@ async function fetchClubsData() {
 
             // Map the icons and full descriptions to the dynamic data since backend only saves basic theme details
             const clubDetails = {
-                "Agni": { element: "🔥", description: "The Fire element - representing energy, passion, and determination.", backgroundColor: "#fff8f8", captainBoy: "Arjun Kumar", captainGirl: "Priya Singh", viceCaptainBoy: "Rajesh Nair", viceCaptainGirl: "Ananya Verma", captainBoyImage: "👨‍💼", captainGirlImage: "👩‍💼", viceCaptainBoyImage: "👨‍💼", viceCaptainGirlImage: "👩‍💼" },
-                "Jala": { element: "💧", description: "The Water element - representing flow, adaptability, and harmony.", backgroundColor: "#eef8f6", captainBoy: "Rajesh Patel", captainGirl: "Ananya Desai", viceCaptainBoy: "Rohan Singh", viceCaptainGirl: "Neha Gupta", captainBoyImage: "👨‍💼", captainGirlImage: "👩‍💼", viceCaptainBoyImage: "👨‍💼", viceCaptainGirlImage: "👩‍💼" },
-                "Prithvi": { element: "🌍", description: "The Earth element - representing stability, strength, and grounding.", backgroundColor: "#fcf7f2", captainBoy: "Vikram Sharma", captainGirl: "Neha Verma", viceCaptainBoy: "Sanjay Kumar", viceCaptainGirl: "Divya Nair", captainBoyImage: "👨‍💼", captainGirlImage: "👩‍💼", viceCaptainBoyImage: "👨‍💼", viceCaptainGirlImage: "👩‍💼" },
-                "Vayu": { element: "💨", description: "The Air element - representing freedom, movement, and communication.", backgroundColor: "#f4f9fe", captainBoy: "Rohit Menon", captainGirl: "Divya Nair", viceCaptainBoy: "Arun Mishra", viceCaptainGirl: "Riya Choudhury", captainBoyImage: "👨‍💼", captainGirlImage: "👩‍💼", viceCaptainBoyImage: "👨‍💼", viceCaptainGirlImage: "👩‍💼" },
-                "Akasha": { element: "🌌", description: "The Space/Ether element - representing cosmic energy and boundless possibilities.", backgroundColor: "#f9f6fc", captainBoy: "Aditya Gupta", captainGirl: "Riya Choudhury", viceCaptainBoy: "Vikash Singh", viceCaptainGirl: "Shreya Sharma", captainBoyImage: "👨‍💼", captainGirlImage: "👩‍💼", viceCaptainBoyImage: "👨‍💼", viceCaptainGirlImage: "👩‍💼" }
+                "Agni": { element: "🔥", 
+                    description: "The Fire element - representing energy, passion, and determination.", 
+                    backgroundColor: "#fff8f8", 
+                    captainBoy: "Shashi ", 
+                    captainGirl: "Priya Singh", 
+                    viceCaptainBoy: "Rajesh Nair", 
+                    viceCaptainGirl: "Ananya Verma", 
+                    captainBoyImage: "👨‍💼",
+                     captainGirlImage: "👩‍💼", 
+                    viceCaptainBoyImage: "👨‍💼", 
+                    viceCaptainGirlImage: "👩‍💼" },
+                "Hydro Heros": { element: "💧", 
+                    description: "Be like water — calm in form, powerful in motion.", 
+                    backgroundColor: "#eef8f6", 
+                    captainBoy: "Vinit Vats", 
+                    captainGirl: "Kanika Gupta", 
+                    viceCaptainBoy: "Shivank Bramhe ", 
+                    viceCaptainGirl: "Vishu Bishnoi ", 
+                    captainBoyImage: "👨‍💼",
+                     captainGirlImage: "👩‍💼", 
+                     viceCaptainBoyImage: "👨‍💼", 
+                     viceCaptainGirlImage: "👩‍💼" },
+                "Prithvi": { element: "🌍",
+                     description: "The Earth element - representing stability, strength, and grounding.", 
+                     backgroundColor: "#fcf7f2",
+                     captainBoy: "Vikram Sharma",
+                      captainGirl: "Neha Verma", 
+                      viceCaptainBoy: "Sanjay Kumar", 
+                      viceCaptainGirl: "Divya Nair", 
+                      captainBoyImage: "👨‍💼", 
+                      captainGirlImage: "👩‍💼", 
+                      viceCaptainBoyImage: "👨‍💼", 
+                      viceCaptainGirlImage: "👩‍💼" },
+                "Vayu": { element: "💨", 
+                    description: "The Air element - representing freedom, movement, and communication.", 
+                    backgroundColor: "#f4f9fe",
+                     captainBoy: "Rohit Menon", 
+                     captainGirl: "Divya Nair", 
+                     viceCaptainBoy: "Arun Mishra", 
+                     viceCaptainGirl: "Riya Choudhury", 
+                     captainBoyImage: "👨‍💼", 
+                     captainGirlImage: "👩‍💼", 
+                     viceCaptainBoyImage: "👨‍💼", 
+                     viceCaptainGirlImage: "👩‍💼" },
+                "Ether Rockz": { element: "🌌", 
+                    description: "The Space/Ether element - representing cosmic energy and boundless possibilities.",
+                     backgroundColor: "#f9f6fc", 
+                     captainBoy: "Sameer",
+                      captainGirl: "Abrithi", 
+                      viceCaptainBoy: "Vikash Singh", 
+                      viceCaptainGirl: "Shreya Sharma", 
+                      captainBoyImage: "👨‍💼",
+                       captainGirlImage: "👩‍💼",
+                        viceCaptainBoyImage: "👨‍💼", 
+                        viceCaptainGirlImage: "👩‍💼" }
             };
 
             // Merge details
@@ -114,18 +178,16 @@ const sports = [
     { id: 6, name: "Volleyball", icon: "🏐", type: "Outdoor", genders: ["male", "female"] },
     { id: 7, name: "Handball", icon: "🤾", type: "Outdoor", genders: ["male"] },
     { id: 8, name: "Box Cricket", icon: "🏏", type: "Outdoor", genders: ["neutral"] },
-    { id: 9, name: "Tug of War", icon: "🪢", type: "Outdoor", genders: ["neutral"] },
-    { id: 10, name: "Swimming", icon: "🏊", type: "Outdoor", genders: ["male", "female"] },
-    { id: 11, name: "Vihang Letters", icon: "🔠", type: "Outdoor", genders: ["neutral"] },
-    { id: 12, name: "Inaugural March Past", icon: "🚶", type: "Outdoor", genders: ["neutral"] },
+    { id: 9, name: "Swimming", icon: "🏊", type: "Outdoor", genders: ["male", "female"] },
+    { id: 10, name: "Inaugural March Past", icon: "🚶", type: "Outdoor", genders: ["neutral"] },
 
     // Indoor
-    { id: 13, name: "Badminton", icon: "🏸", type: "Indoor", genders: ["male", "female", "mixed"] },
-    { id: 14, name: "Table Tennis", icon: "🏓", type: "Indoor", genders: ["male", "female"] },
-    { id: 15, name: "Carrom", icon: "🎯", type: "Indoor", genders: ["male", "female"] },
-    { id: 16, name: "Chess", icon: "♟️", type: "Indoor", genders: ["male", "female"] },
-    { id: 19, name: "Powerlifting", icon: "🏋️", type: "Indoor", genders: ["male"] },
-    { id: 20, name: "Yoga", icon: "🧘", type: "Indoor", genders: ["neutral"] },
+    { id: 11, name: "Badminton", icon: "🏸", type: "Indoor", genders: ["male", "female", "mixed"] },
+    { id: 12, name: "Table Tennis", icon: "🏓", type: "Indoor", genders: ["male", "female"] },
+    { id: 13, name: "Carrom", icon: "🎯", type: "Indoor", genders: ["male", "female"] },
+    { id: 14, name: "Chess", icon: "♟️", type: "Indoor", genders: ["male", "female"] },
+    { id: 15, name: "Powerlifting", icon: "🏋️", type: "Indoor", genders: ["male"] },
+    { id: 16, name: "Yoga", icon: "🧘", type: "Indoor", genders: ["neutral"] },
 
     // E-Sports
     { id: 17, name: "BGMI", icon: "📱", type: "E-Sports", genders: ["neutral"] },

@@ -27,11 +27,11 @@ function renderClubs() {
             <div class="club-description">${club.description}</div>
             <div class="club-leadership">
                 <div class="leader">
-                    <span class="label">Captain:</span>
+                    <span class="label">Coordinators:</span>
                     <span class="names">${club.captainBoy} / ${club.captainGirl}</span>
                 </div>
                 <div class="leader">
-                    <span class="label">Vice-Captain:</span>
+                    <span class="label">Vice-Coordinators:</span>
                     <span class="names">${club.viceCaptainBoy} / ${club.viceCaptainGirl}</span>
                 </div>
             </div>
@@ -88,7 +88,7 @@ function renderClubLeaderboard() {
         <thead>
             <tr>
                 <th>Rank</th>
-                <th>Club</th>
+                <th colspan="2">Club</th>
                 <th>Sports Pts</th>
                 <th>Culture Pts</th>
                 <th>Total Pts</th>
@@ -101,10 +101,11 @@ function renderClubLeaderboard() {
         headerHTML += `
             <tr style="cursor: pointer;" onclick="goToClubDetails(${club.id})">
                 <td class="rank">${index + 1}</td>
-                <td class="club-name-cell" style="border-left: 4px solid ${club.color}">${club.name}</td>
+                <td class="club-capsule-cell"><div class="club-capsule" style="background: ${getClubGradient(club.name, club.color)};"></div></td>
+                <td class="club-name-cell">${club.name}</td>
                 <td class="points">${club.sportsPoints}</td>
                 <td class="points">${club.culturePoints}</td>
-                <td class="points" style="font-weight: bold; color: ${club.color};">${club.totalPoints}</td>
+                <td class="points" style="font-weight: bold; color: black;">${club.totalPoints}</td>
             </tr>
         `;
     });

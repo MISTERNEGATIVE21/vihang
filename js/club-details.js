@@ -51,25 +51,25 @@ function renderTeamMembers(club) {
     const members = [
         {
             name: club.captainBoy,
-            role: 'Captain (Boy)',
+            role: 'Coordinator (Boy)',
             image: club.captainBoyImage,
             type: 'primary'
         },
         {
             name: club.captainGirl,
-            role: 'Captain (Girl)',
+            role: 'Coordinator (Girl)',
             image: club.captainGirlImage,
             type: 'primary'
         },
         {
             name: club.viceCaptainBoy,
-            role: 'Vice-Captain (Boy)',
+            role: 'Vice-Coordinator (Boy)',
             image: club.viceCaptainBoyImage,
             type: 'secondary'
         },
         {
             name: club.viceCaptainGirl,
-            role: 'Vice-Captain (Girl)',
+            role: 'Vice-Coordinator (Girl)',
             image: club.viceCaptainGirlImage,
             type: 'secondary'
         }

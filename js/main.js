@@ -24,7 +24,7 @@ function renderLeaderboard() {
         <thead>
             <tr>
                 <th>Rank</th>
-                <th>Club</th>
+                <th colspan="2">Club</th>
                 <th>Element</th>
                 <th>Points</th>
             </tr>
@@ -36,7 +36,8 @@ function renderLeaderboard() {
         headerHTML += `
             <tr onclick="goToClubDetails(${club.id})" style="cursor: pointer;">
                 <td class="rank">${index + 1}</td>
-                <td class="club-name-cell" style="border-left: 4px solid ${club.color}">${club.name}</td>
+                <td class="club-capsule-cell"><div class="club-capsule" style="background: ${getClubGradient(club.name, club.color)};"></div></td>
+                <td class="club-name-cell">${club.name}</td>
                 <td class="element-cell">${club.theme}</td>
                 <td class="points">${club.totalPoints}</td>
             </tr>
