@@ -6,8 +6,8 @@ const clubGradients = {
     "Agni":         "linear-gradient(200deg, #ffcc91,rgb(244, 42, 42))",
     "Hydro Heros":  "linear-gradient(180deg, #b1f8fd, #2002b7)",
     "Prithvi":      "linear-gradient(180deg, #eadcc8, #814402)",
-    "Vayu":         "linear-gradient(180deg, #87CEEB, #54a0ff)",
-    "Ether Rockz":  "linear-gradient(180deg, #483D8B, #6c5ce7)",
+    "Vayu":         "linear-gradient(180deg, #ffffff, #6e9fb6)",
+    "Ether Rockz":  "linear-gradient(180deg, #eeebff, #2c2083)",
 };
 
 // Helper to get gradient for a club name (falls back to solid color)
@@ -71,7 +71,7 @@ async function fetchClubsData() {
                      captainGirlImage: "👩‍💼", 
                      viceCaptainBoyImage: "👨‍💼", 
                      viceCaptainGirlImage: "👩‍💼" },
-                "Ether Rockz": { element: "🌌", 
+                "Ether Rox": { element: "🌌", 
                     description: "The Space/Ether element - representing cosmic energy and boundless possibilities.",
                      backgroundColor: "#f9f6fc", 
                      captainBoy: "Sameer",
@@ -97,50 +97,6 @@ async function fetchClubsData() {
     }
     return [];
 }
-
-// Organizers Data
-const organizers = [
-    {
-        id: 1,
-        name: "Dr. Ramesh Verma",
-        role: "Chief Organizer",
-        image: "👨‍💼",
-        bio: "Visionary leader with 15+ years of experience in organizing youth events and competitions.",
-        category: "faculty"
-    },
-    {
-        id: 2,
-        name: "Ms. Priya Sharma",
-        role: "Co-Organizer",
-        image: "👩‍💼",
-        bio: "Passionate about fostering teamwork and excellence among students.",
-        category: "faculty"
-    },
-    {
-        id: 3,
-        name: "Mr. Sanjay Patel",
-        role: "Sports Coordinator",
-        image: "👨‍💼",
-        bio: "Dedicated sports enthusiast focused on building competitive sports culture.",
-        category: "committee"
-    },
-    {
-        id: 4,
-        name: "Ms. Anjali Gupta",
-        role: "Cultural Events Lead",
-        image: "👩‍💼",
-        bio: "Creative director dedicated to celebrating cultural talents and diversity.",
-        category: "committee"
-    },
-    {
-        id: 5,
-        name: "Mr. Rohit Kumar",
-        role: "Finance & Operations",
-        image: "👨‍💼",
-        bio: "Ensures smooth operations and fair management of all competitions.",
-        category: "committee"
-    }
-];
 
 
 const sponsors = [
