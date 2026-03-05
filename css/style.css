@@ -295,6 +295,11 @@ body {
     color: white;
 }
 
+/* Login link inside nav — hidden on desktop, shown on mobile */
+.mobile-login {
+    display: none;
+}
+
 .nav-links a {
     color: white;
     text-decoration: none;
@@ -416,7 +421,13 @@ body {
 
     .nav-actions {
         display: none;
-        /* Hide the extra login button on mobile to save space */
+    }
+
+    .mobile-login {
+        display: list-item;
+        margin-top: 0.5rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .nav-links.active {
