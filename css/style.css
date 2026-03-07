@@ -544,7 +544,7 @@ body {
     letter-spacing: 2px;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
     line-height: 1;
-    /*font-family: 'Poppins', sans-serif;*/
+    font-family: 'Poppins', sans-serif;
 }
 
 .presents-text {
@@ -583,7 +583,7 @@ body {
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
     /* Sets the thickness of the outline */
-    -webkit-text-stroke-color: rgb(250, 246, 246);
+    -webkit-text-stroke-color: rgb(226, 226, 226);
     /* Sets the color of the outline */
     color: rgb(16, 0, 0);
     /*text-shadow: 0 0 20px rgba(209, 190, 190, 0.4);*/
