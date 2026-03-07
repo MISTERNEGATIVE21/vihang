@@ -14,6 +14,7 @@ const path = require('path');
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.enable('trust proxy'); // Trust Cloudflare proxy for SSL
 
 // Serve static frontend files (root directory of project)
 app.use(express.static(path.join(__dirname, '../')));

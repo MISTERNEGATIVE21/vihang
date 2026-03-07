@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  backend:
+    image: ghcr.io/misternegative21/vihang:latest
+    container_name: vihang_backend
+    ports:
+      - "80:80"
+    env_file:
+      - .env
+    # No internal mongo service - uses external MONGODB_URI from .env
+    restart: unless-stopped

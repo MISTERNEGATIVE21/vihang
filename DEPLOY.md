@@ -122,6 +122,31 @@ Visit `https://vihang.yourdomain.com` — your site is live with HTTPS!
 
 ---
 
+## Deployment with Cloudflare & External MongoDB
+
+Use this method if you have an external MongoDB (e.g., MongoDB Atlas) and want to point your Cloudflare **A record** directly to your server.
+
+### Step 1 — Prepare `.env`
+Ensure your `.env` has the external `MONGODB_URI`:
+```env
+MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/vihang
+PORT=80
+```
+
+### Step 2 — Start with Cloudflare-ready Compose
+```bash
+docker compose -f docker-compose.cloudflare.yml up -d
+```
+> **Note:** The `latest` image is automatically built and pushed to GHCR by GitHub Actions on every push to `main`.
+
+### Step 3 — Cloudflare Configuration
+1. In Cloudflare, point an **A record** (e.g., `vihang.com`) to your VPS IP.
+2. Go to **SSL/TLS** settings:
+    - Set to **Flexible** (Traffic flows as HTTPS to Cloudflare, and HTTP to your VPS on port 80).
+    - Or use **Full** if you set up a reverse proxy with a self-signed cert on the server.
+
+---
+
 ## GitHub Actions
 
 Both workflows include `workflow_dispatch` — trigger builds manually from the **Actions** tab → **Run workflow** button.
@@ -135,7 +160,8 @@ Both workflows include `workflow_dispatch` — trigger builds manually from the 
 | View running containers | `docker ps` |
 | View app logs | `docker logs -f vihang_backend` |
 | Restart app | `docker restart vihang_backend` |
-| Stop everything | `docker stop vihang_backend vihang_mongodb` |
-| Remove containers | `docker rm vihang_backend vihang_mongodb` |
+| Stop everything | `docker compose -f docker-compose.cloudflare.yml down` |
+| Remove containers | `docker rm -f vihang_backend` |
 | Renew SSL manually | `sudo certbot renew` |
 | Test Nginx config | `sudo nginx -t` |
+| Check config | `docker compose -f docker-compose.cloudflare.yml config` |
