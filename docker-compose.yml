@@ -1,26 +1,13 @@
-version: '3.8'
-
 services:
-
   backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: ghcr.io/misternegative21/vihang:latest
     container_name: vihang_backend
     ports:
       - "80:80"
     env_file:
       - .env
-    depends_on:
-      - mongo
+    # No internal mongo service - uses external MONGODB_URI from .env
     restart: unless-stopped
-
-  mongo:
-    image: mongo:latest
-    container_name: vihang_mongodb
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongodb_data:/data/db
-    restart: unless-stopped
-
-volumes:
-  mongodb_data:

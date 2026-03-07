@@ -133,11 +133,11 @@ MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/vihang
 PORT=80
 ```
 
-### Step 2 — Start with Cloudflare-ready Compose
+### Step 2 — Start with new default Compose
 ```bash
-docker compose -f docker-compose.cloudflare.yml up -d
+docker compose up -d --build
 ```
-> **Note:** The `latest` image is automatically built and pushed to GHCR by GitHub Actions on every push to `main`.
+> **Note:** The `latest` image is automatically built using `localbuild.dockerfile` and pushed to GHCR by GitHub Actions on every push to `main`.
 
 ### Step 3 — Cloudflare Configuration
 1. In Cloudflare, point an **A record** (e.g., `vihang.com`) to your VPS IP.
@@ -180,8 +180,8 @@ Both workflows include `workflow_dispatch` — trigger builds manually from the 
 | View running containers | `docker ps` |
 | View app logs | `docker logs -f vihang_backend` |
 | Restart app | `docker restart vihang_backend` |
-| Stop everything | `docker compose -f docker-compose.cloudflare.yml down` |
+| Stop everything | `docker compose down` |
 | Remove containers | `docker rm -f vihang_backend` |
 | Renew SSL manually | `sudo certbot renew` |
 | Test Nginx config | `sudo nginx -t` |
-| Check config | `docker compose -f docker-compose.cloudflare.yml config` |
+| Check config | `docker compose config` |
