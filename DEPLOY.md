@@ -147,6 +147,26 @@ docker compose -f docker-compose.cloudflare.yml up -d
 
 ---
 
+## Cloudflare SSL Configuration & Troubleshooting
+
+If you are seeing errors (like **521**, **525**, or **ERR_TOO_MANY_REDIRECTS**), check your Cloudflare SSL/TLS settings:
+
+### Option 1 — Flexible SSL (Recommended for most)
+*   **How it works**: Browsers connect to Cloudflare via HTTPS, but Cloudflare connects to your VPS via HTTP (port 80).
+*   **Cloudflare Setting**: Set SSL/TLS to **Flexible**.
+*   **Common Error**: If you see `ERR_TOO_MANY_REDIRECTS`, it means your app is trying to force HTTPS. Since Cloudflare talks to your app via HTTP, the app sends a redirect, and Cloudflare sends it back to the app, creating a loop.
+*   **Fix**: Ensure your app **does not** have code like `next-sslify` or manual redirects to HTTPS when `req.protocol` is 'http'.
+
+### Option 2 — Full (Strict) SSL (Most Secure)
+*   **How it works**: End-to-end encryption. Cloudflare connects to your VPS via HTTPS (port 443).
+*   **Requirements**:
+    1.  You must have SSL certificates on your VPS (e.g. Cloudflare Origin CA).
+    2.  Open port **443** on your server.
+    3.  Configure a reverse proxy (like Nginx) to use your `.PEM` and `private.key` files.
+*   **Cloudflare Setting**: Set SSL/TLS to **Full (Strict)**.
+
+---
+
 ## GitHub Actions
 
 Both workflows include `workflow_dispatch` — trigger builds manually from the **Actions** tab → **Run workflow** button.
