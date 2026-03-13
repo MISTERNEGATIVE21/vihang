@@ -4,13 +4,22 @@ document.addEventListener('DOMContentLoaded', async function () {
     await fetchClubsData();
     const clubId = sessionStorage.getItem('selectedClubId');
     if (clubId) {
-        displayClubDetails(clubId); // Note: _id is a string from mongo now
+        // Fetch logos
+        let clubLogosData = [];
+        try {
+            const res = await fetch('https://vihang-woya.onrender.com/api/images/club-logos');
+            if (res.ok) clubLogosData = await res.json();
+        } catch (e) {
+            console.error('Failed to fetch club logos', e);
+        }
+        
+        displayClubDetails(clubId, clubLogosData); // Pass the logo data
     } else {
         window.location.href = 'clubs.html';
     }
 });
 
-function displayClubDetails(clubId) {
+function displayClubDetails(clubId, clubLogosData = []) {
     const club = clubs.find(c => c.id === clubId);
 
     if (!club) {
@@ -18,12 +27,20 @@ function displayClubDetails(clubId) {
         return;
     }
 
+    // Find logo from data fetched
+    const logoData = clubLogosData.find(l => l.name.toLowerCase() === club.name.toLowerCase());
+    const logoUrl = logoData ? logoData.image_url : null;
+
+    let imageHtml = logoUrl 
+        ? `<div class="detail-image" style="background-color: #fff"><img src="${logoUrl}" alt="${club.name} logo" style="width:100%; height:100%; object-fit:contain; border-radius:inherit;"></div>`
+        : `<div class="detail-image" style="background-color: ${club.color}">${club.element}</div>`;
+
     // Update club details
     const clubDetailsDiv = document.getElementById('clubDetails');
     clubDetailsDiv.innerHTML = `
         <div class="club-detail-card" style="border-color: ${club.color}; background-color: ${club.backgroundColor}">
             <div class="detail-header">
-                <div class="detail-image" style="background-color: ${club.color}">${club.element}</div>
+                ${imageHtml}
                 <div class="detail-info">
                     <h1>${club.name}</h1>
                     <h3 style="color: ${club.color}; margin-bottom: 10px;">Element: ${club.theme}</h3>

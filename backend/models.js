@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { mainDb, imageDb} = require('./db');
 
 // Club Schema
 const clubSchema = new mongoose.Schema({
@@ -70,10 +71,36 @@ const scoreLogSchema = new mongoose.Schema({
     timestamp: { type: Date, default: Date.now }
 });
 
+// ===================== IMAGE DB SCHEMAS =====================
+const clubHomeSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    image_url: { type: String, required: true }
+}, { collection: 'Clubs-home' });
+
+const GallerySchema = new mongoose.Schema({
+    num: { type: mongoose.Schema.Types.Decimal128, required: true },
+    image_url: { type: String, required: true }
+}, { collection: 'Gallery' });
+
+const clubLogosSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    image_url: { type: String, required: true }
+}, { collection: 'Club-logos' });
+
+const teamPageSchema = new mongoose.Schema({
+    category: { type: String, required: true },
+    Name: { type: String, required: true },
+    image_url: { type: String, required: true }
+}, { collection: 'Teampage' });
+
 module.exports = {
-    Club: mongoose.model('Club', clubSchema),
-    Sport: mongoose.model('Sport', sportSchema),
-    Culture: mongoose.model('Culture', cultureSchema),
-    Organizer: mongoose.model('Organizer', organizerSchema),
-    ScoreLog: mongoose.model('ScoreLog', scoreLogSchema)
+    Club: mainDb.model('Club', clubSchema),
+    Sport: mainDb.model('Sport', sportSchema),
+    Culture: mainDb.model('Culture', cultureSchema),
+    Organizer: mainDb.model('Organizer', organizerSchema),
+    ScoreLog: mainDb.model('ScoreLog', scoreLogSchema),
+    ClubHome: imageDb.model('ClubHome', clubHomeSchema),
+    Gallery: imageDb.model('Gallery', GallerySchema),
+    ClubLogo: imageDb.model('ClubLogo', clubLogosSchema),
+    TeamMember: imageDb.model('TeamMember', teamPageSchema)
 };

@@ -2,15 +2,30 @@
 
 document.addEventListener('DOMContentLoaded', async function () {
     await fetchClubsData();
-    renderClubs();
+    
+    // Fetch logos
+    let clubLogosData = [];
+    try {
+        const res = await fetch('https://vihang-woya.onrender.com/api/images/club-logos');
+        if (res.ok) clubLogosData = await res.json();
+    } catch (e) {
+        console.error('Failed to fetch club logos', e);
+    }
+    
+    renderClubs(clubLogosData);
     renderClubLeaderboard();
 });
 
-function renderClubs() {
+function renderClubs(clubLogosData = []) {
     const clubsGrid = document.getElementById('clubsGrid');
+    if (!clubsGrid) return;
     clubsGrid.innerHTML = '';
 
     clubs.forEach(club => {
+        // Find logo from data fetched
+        const logoData = clubLogosData.find(l => l.name.toLowerCase() === club.name.toLowerCase());
+        const logoUrl = logoData ? logoData.image_url : null;
+        
         const swiperSlide = document.createElement('div');
         swiperSlide.className = 'swiper-slide';
 
@@ -20,8 +35,12 @@ function renderClubs() {
         clubCard.style.backgroundColor = club.backgroundColor;
         clubCard.onclick = () => goToClubDetails(club.id);
 
+        let imageHtml = logoUrl 
+            ? `<div class="club-image"><img src="${logoUrl}" alt="${club.name} logo" style="width:100%; height:100%; object-fit:contain; border-radius:inherit;"></div>`
+            : `<div class="club-image">${club.element}</div>`;
+
         clubCard.innerHTML = `
-            <div class="club-image">${club.element}</div>
+            ${imageHtml}
             <div class="club-name">${club.name}</div>
             <div class="club-theme">${club.theme}</div>
             <div class="club-description">${club.description}</div>

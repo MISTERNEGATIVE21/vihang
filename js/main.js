@@ -8,10 +8,12 @@ document.addEventListener('DOMContentLoaded', async function () {
     renderLeaderboard();
     renderAboutSection();
     renderHomeSponsors();
+    renderHomeClubs();
 });
 
 function renderLeaderboard() {
     const leaderboard = document.getElementById('leaderboard');
+    if (!leaderboard) return;
     leaderboard.innerHTML = '';
 
     // Sort clubs by total points
@@ -98,6 +100,7 @@ function renderHomeSponsors() {
     if (!sponsorsGrid) return;
     sponsorsGrid.innerHTML = '';
 
+    /* Disable sponsors rendering for now
     sponsors.forEach(sponsor => {
         const sponsorCard = document.createElement('div');
         sponsorCard.className = 'sponsor-card';
@@ -109,6 +112,48 @@ function renderHomeSponsors() {
         `;
 
         sponsorsGrid.appendChild(sponsorCard);
+    });
+    */
+}
+
+// Club border colors for the home section
+const clubBorderColors = {
+    'Ether': '#A5A9D1',
+    'Earth': '#86A162',
+    'Water': '#5088C2',
+    'Fire': '#Df8338',
+    'Air': '#87ABB3'
+};
+
+// No fallback logos used anymore to purely test backend functionality
+
+async function renderHomeClubs() {
+    const grid = document.getElementById('homeClubsGrid');
+    if (!grid) return;
+
+    let logos = []; // Start empty
+    try {
+        const response = await fetch('https://vihang-woya.onrender.com/api/images/club-home');
+        if (response.ok) {
+            const data = await response.json();
+            if (data.length > 0) logos = data;
+        }
+    } catch (error) {
+        console.error('Error fetching club logos, using fallback:', error);
+    }
+
+    grid.innerHTML = '';
+    logos.forEach(club => {
+        const borderColor = clubBorderColors[club.name] || '#ccc';
+        const item = document.createElement('div');
+        item.className = 'home-club-item';
+        item.innerHTML = `
+            <div class="home-club-logo" style="background-color: #ffffff; border-color: ${borderColor};">
+                <img class="home-club-logo-img" src="${club.image_url}" alt="${club.name}">
+            </div>
+            <strong>${club.name}</strong>
+        `;
+        grid.appendChild(item);
     });
 }
 
@@ -194,25 +239,42 @@ window.addEventListener('scroll', () => {
 // ============================================
 // GALLERY CAROUSEL
 // ============================================
-(function () {
-    const slides = document.querySelectorAll('.gallery-slide');
+(async function () {
+    const carousel = document.getElementById('galleryCarousel');
     const prevBtn = document.getElementById('galleryPrev');
     const nextBtn = document.getElementById('galleryNext');
-    if (!slides.length) return;
+    if (!carousel) return;
+
+    // Fetch gallery images from API
+    let images = [];
+    try {
+        const res = await fetch('https://vihang-woya.onrender.com/api/images/gallery');
+        images = await res.json();
+    } catch (e) {
+        // fallback: do nothing if fetch fails
+    }
+    if (!Array.isArray(images) || images.length === 0) return;
+    console.log('Gallery images loaded:', images);
+    // Render images in the carousel
+    carousel.innerHTML = images.map(img =>
+        `<div class="gallery-slide"><img src="${img.image_url}" alt="Vihang moment"></div>`
+    ).join('');
+
+    // Re-query the slides from the DOM after injecting them
+    const slides = carousel.querySelectorAll('.gallery-slide');
+    if (slides.length === 0) return;
 
     let current = 0;
     const total = slides.length;
 
     function updateCarousel() {
         slides.forEach(s => s.className = 'gallery-slide');
-
         const getIdx = (offset) => (current + offset + total) % total;
-
         slides[current].classList.add('active');
-        slides[getIdx(-1)].classList.add('prev');
-        slides[getIdx(1)].classList.add('next');
-        slides[getIdx(-2)].classList.add('far-prev');
-        slides[getIdx(2)].classList.add('far-next');
+        if (total > 1) slides[getIdx(-1)].classList.add('prev');
+        if (total > 1) slides[getIdx(1)].classList.add('next');
+        if (total > 2) slides[getIdx(-2)].classList.add('far-prev');
+        if (total > 2) slides[getIdx(2)].classList.add('far-next');
     }
 
     function goNext() {
