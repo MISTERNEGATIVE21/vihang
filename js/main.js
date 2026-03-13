@@ -144,14 +144,20 @@ async function renderHomeClubs() {
 
     grid.innerHTML = '';
     logos.forEach(club => {
-        const borderColor = clubBorderColors[club.name] || '#ccc';
+        // Find matching color key regardless of case
+        const colorKey = Object.keys(clubBorderColors).find(k => k.toLowerCase() === club.name.toLowerCase());
+        const borderColor = colorKey ? clubBorderColors[colorKey] : '#ccc';
+        
+        // Capitalize the first letter of the club name for aesthetic purposes
+        const displayName = club.name.charAt(0).toUpperCase() + club.name.slice(1).toLowerCase();
+        
         const item = document.createElement('div');
         item.className = 'home-club-item';
         item.innerHTML = `
             <div class="home-club-logo" style="background-color: #ffffff; border-color: ${borderColor};">
-                <img class="home-club-logo-img" src="${club.image_url}" alt="${club.name}">
+                <img class="home-club-logo-img" src="${club.image_url}" alt="${displayName}">
             </div>
-            <strong>${club.name}</strong>
+            <strong>${displayName}</strong>
         `;
         grid.appendChild(item);
     });
