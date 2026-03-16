@@ -21,7 +21,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: var(--text-dark);
     background-color: var(--light-bg);
     line-height: 1.6;
@@ -580,12 +580,10 @@ body {
 .hero-content h1 {
     font-size: 9rem;
     font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    color: transparent;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 1px;
-    /* Sets the thickness of the outline */
-    -webkit-text-stroke-color: rgb(226, 226, 226);
-    /* Sets the color of the outline */
-    color: rgb(16, 0, 0);
+    -webkit-text-stroke: 1px rgb(226, 226, 226);
     /*text-shadow: 0 0 20px rgba(209, 190, 190, 0.4);*/
     letter-spacing: -1px;
 }
@@ -872,15 +870,17 @@ body {
     }
 
     .countdown-timer {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        gap: 10px;
-        padding: 20px;
+        gap: 1rem;
+        padding: 1px;
     }
 
     .time-box {
         width: 80px;
+        min-width: 100px;
         height: 110px;
+        padding: 1.5rem 1rem;
         border-radius: 6px;
         margin-bottom: 0;
     }
@@ -908,9 +908,13 @@ body {
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
     }
+    
+    .time-value {
+        font-size: 2.5rem;
+    }
 
     .time-label {
-        font-size: 0.65rem;
+        font-size: 0.9rem;
         bottom: 5px;
         letter-spacing: 1px;
     }
@@ -1835,17 +1839,6 @@ body {
     color: var(--text-dark);
 }
 
-.club-card.club-card {
-    background: white;
-    border-radius: 12px;
-    padding: 0rem;
-    box-shadow: var(--shadow);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-    position: relative;
-}
-
 .club-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
@@ -2592,45 +2585,12 @@ body {
     .media-grid {
         grid-template-columns: 1fr;
     }
-    .countdown-timer {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-    .time-box {
-        min-width: 100px;
-        padding: 1.5rem 1rem;
-    }
-    .time-value {
-        font-size: 2.5rem;
-    }
-    .time-label {
-        font-size: 0.9rem;
-        letter-spacing: 1px;
-    }
 }
 
 /* ============================================
    SPONSORS SECTION - HOME PAGE
    ============================================ */
-.sponsors-section-home {
-    padding: 60px 0;
-    background: #f9f9f9;
-    position: relative;
-    z-index: 1;
-}
-
-.sponsors-section-home h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-dark);
-    font-weight: 800;
-}
-
-/* ============================================
-   HOME CLUBS SECTION
-   ============================================ */
+.sponsors-section-home,
 .home-clubs-section {
     padding: 60px 0;
     background: #f9f9f9;
@@ -2638,6 +2598,7 @@ body {
     z-index: 1;
 }
 
+.sponsors-section-home h2,
 .home-clubs-section h2 {
     text-align: center;
     font-size: 2.5rem;
