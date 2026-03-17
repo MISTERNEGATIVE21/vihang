@@ -736,7 +736,7 @@ body {
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    flex-wrap: wrap;
+    
 }
 
 .time-box {
@@ -877,8 +877,8 @@ body {
     }
 
     .time-box {
-        width: 80px;
-        min-width: 100px;
+        width: 67px;
+        min-width: 67px;
         height: 110px;
         padding: 1.5rem 1rem;
         border-radius: 6px;
@@ -886,11 +886,11 @@ body {
     }
 
     .flip-card {
-        width: 80px;
+        width: 62px;
         height: 80px;
         font-family: 'Outfit', sans-serif;
         font-weight: 300;
-        font-size: 4rem;
+        font-size: 2rem;
         line-height: 80px;
         border-radius: 8px;
     }
@@ -914,7 +914,7 @@ body {
     }
 
     .time-label {
-        font-size: 0.9rem;
+        font-size: 0.7rem;
         bottom: 5px;
         letter-spacing: 1px;
     }
