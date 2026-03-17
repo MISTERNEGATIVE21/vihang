@@ -1055,7 +1055,11 @@ body {
     margin-bottom: 3rem;
     color: var(--text-dark);
 }
-
+.club-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /* Swiper styles */
 .mySwiper {
     padding-bottom: 50px;
@@ -1082,7 +1086,7 @@ body {
 
 .club-card {
     background: white;
-    border-radius: 12px;
+    border-radius: 56px;
     padding: 0rem;
     box-shadow: var(--shadow);
     cursor: pointer;
@@ -1096,13 +1100,13 @@ body {
 }
 
 .club-image {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .club-image .club-logo {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
+    width: 40px;
+    height: 40px;
+    
 }
 
 .club-name {
