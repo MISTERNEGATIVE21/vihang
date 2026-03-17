@@ -36,7 +36,7 @@ function renderClubs(clubLogosData = []) {
         clubCard.onclick = () => goToClubDetails(club.id);
 
         let imageHtml = logoUrl 
-            ? `<div class="club-image"><img src="${logoUrl}" alt="${club.name} logo" style="width:100%; height:100%; object-fit:contain; border-radius:inherit;"></div>`
+            ? `<div class="club-image"><img src="${logoUrl}" alt="${club.name} logo" style=" padding:10px; width:300px; height:150px; object-fit:contain; border-radius:inherit;"></div>`
             : `<div class="club-image">${club.element}</div>`;
 
         clubCard.innerHTML = `
