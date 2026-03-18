@@ -731,10 +731,10 @@ body {
 .countdown-timer {
     display: inline-flex;
     justify-content: center;
-    gap: 57px;
+    gap: 30px;
     background-color: #f0efef;
-    padding: 30px;
-    border-radius: 12px;
+    padding: 20px;
+    border-radius: 30px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
     
 }
@@ -742,7 +742,7 @@ body {
 .time-box {
     position: relative;
     width: 140px;
-    height: 220px;
+    height: 195px;
     /* Increased height to fit label outside */
     display: flex;
     flex-direction: column;
@@ -873,7 +873,7 @@ body {
         flex-direction: row;
         align-items: center;
         gap: 1rem;
-        padding: 1px;
+        padding: 1px 15px;
     }
 
     .time-box {
