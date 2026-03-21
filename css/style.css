@@ -623,7 +623,7 @@ body {
   }
 
   .presents-text {
-    font-size: 0.45rem;
+    font-size: 0.25rem;
     letter-spacing: 4px;
     margin-right: -4px;
   }
@@ -1343,7 +1343,7 @@ body {
 
 .events-section {
   margin-top: 100px;
-  padding: 60px 0;
+  padding: 30px 0;
 }
 
 .events-section h1 {
@@ -2705,7 +2705,7 @@ body {
 }
 
 .footer-links li a:hover {
-  color: #ffffff;
+  color: #ffd7a7;
 }
 
 .footer-contact p {
@@ -2722,7 +2722,7 @@ body {
 }
 
 .footer-contact a:hover {
-  color: #ffffff;
+  color: #c4a78e;
 }
 
 .footer-sponsor {
@@ -2737,25 +2737,7 @@ body {
   font-size: 0.85rem;
 }
 
-.sponsor-button {
-  display: inline-block;
-  padding: 0.6rem 1.5rem;
-  background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
-  color: #ffffff !important;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 0.9rem;
-  text-decoration: none !important;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-  width: fit-content;
-}
 
-.sponsor-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
-}
 
 .footer-bottom {
   display: flex;
@@ -2767,17 +2749,17 @@ body {
 }
 
 .footer-bottom a {
-  color: #00c6ff;
+  color: #d7d7d7;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-bottom a:hover {
-  color: #ffffff;
+  color: #eaaf86;
 }
 
 .footer-bottom strong {
-  color: #00c6ff;
+  color: #5a5e66;
 }
 
 @media (max-width: 768px) {
