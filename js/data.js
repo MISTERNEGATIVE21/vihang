@@ -29,7 +29,7 @@ async function fetchClubsData() {
         "Ether Rox": {
           element: `<img src="../images/clubs_logos/club1_logo.png" alt="Ether Rox" class="club-logo">`,
           description:
-            "The Ether  <br> Cosmic energy, boundless reach.",
+            "Cosmic energy, boundless reach.",
           backgroundColor: "#f9f6fc",
           captainBoy: "Sameer Bobde",
           captainGirl: "Aabriti Saha",
@@ -43,7 +43,7 @@ async function fetchClubsData() {
         "Gravitas Elites": {
           element: `<img src="../images/clubs_logos/club2_logo.PNG" alt="Gravitas Elites" class="club-logo">`,
           description:
-            "The Earth  <br> Steady stance, absolute strength.",
+            "Steady stance, absolute strength.",
           backgroundColor: "#fcf7f2",
           captainBoy: "Rapelli S Prathik",
           captainGirl: "Kottapalli Navina",
@@ -57,7 +57,7 @@ async function fetchClubsData() {
 
         "Hydro Heroes": {
           element: `<img src="../images/clubs_logos/club3_logo.png" alt="Hydro Heroes" class="club-logo">`,
-          description: "Be like water <br> Calm in form, powerful in motion.",
+          description: "Calm in form, powerful in motion.",
           backgroundColor: "#eef8f6",
           captainBoy: "Vinit Vats",
           captainGirl: "Kanika Gupta",
@@ -71,7 +71,7 @@ async function fetchClubsData() {
         Firestorm: {
           element: `<img src="../images/clubs_logos/club4_logo.png" alt="Firestorm" class="club-logo">`,
           description:
-            "The Fire  <br> Blazing passion, relentless drive.",
+            "Blazing passion, relentless drive.",
           backgroundColor: "#fff8f8",
           captainBoy: "Shashi Kumar ",
           captainGirl: "Kavi Sheoran",
@@ -86,7 +86,7 @@ async function fetchClubsData() {
         "Aero Knights": {
           element: `<img src="../images/clubs_logos/Club_5 logo.png" alt="Aero Knights" class="club-logo">`,
           description:
-            "The Air  <br> Swift movement, boundless freedom.",
+            "Swift movement, boundless freedom.",
           backgroundColor: "#f4f9fe",
           captainBoy: "Divyansh P Singh",
           captainGirl: "Sweta Tiwari",

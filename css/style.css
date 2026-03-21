@@ -560,8 +560,8 @@ body {
 }
 
 .hero-bottom-item.location {
-  font-size: 1.4rem;
-  letter-spacing: 1px;
+  font-size: 1rem;
+  letter-spacing: 0.75px;
   text-transform: uppercase;
 }
 
@@ -603,7 +603,7 @@ body {
   }
 
   .presents-text {
-    font-size: 0.35rem;
+    font-size: 1rem;
     letter-spacing: 6px;
     margin-right: -6px;
   }
@@ -613,7 +613,7 @@ body {
   }
 
   .hero-bottom-item.location {
-    font-size: 1.1rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -623,7 +623,7 @@ body {
   }
 
   .presents-text {
-    font-size: 0.25rem;
+    font-size: 0.45rem;
     letter-spacing: 4px;
     margin-right: -4px;
   }
@@ -994,7 +994,7 @@ body {
 
 .clubs-section {
   margin-top: 100px;
-  padding: 60px 0;
+  padding: 30px 0;
 }
 
 .clubs-section h2 {
@@ -1324,8 +1324,8 @@ body {
 }
 
 .club-capsule {
-  width: 10px;
-  height: 30px;
+  width: 5px;
+  height: 20px;
   border-radius: 999px;
   margin: 0 auto;
 }
@@ -1833,15 +1833,15 @@ body {
 .club-description {
   color: var(--text-light);
   font-size: 0.95rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   line-height: 1.6;
 }
 
 .club-leadership {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   border-top: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 1rem 0;
+  border-bottom: 0.5px solid #e0e0e0;
+  padding: 0.5rem 0;
 }
 
 .leader {
