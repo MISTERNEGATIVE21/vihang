@@ -2386,7 +2386,7 @@ body {
 
 @media (max-width: 768px) {
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
     }
 
     .nav-links {
@@ -2506,7 +2506,7 @@ body {
 
 @media (max-width: 480px) {
     .hero-content h1 {
-        font-size: 1.8rem;
+        font-size: 3.8rem;
     }
 
     .hero-content p {
