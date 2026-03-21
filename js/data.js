@@ -5,7 +5,7 @@ const clubGradients = {
   "Ether Rox": "linear-gradient(180deg, #eeebff, #2c2083)",
   "Hydro Heroes": "linear-gradient(180deg, #b1f8fd, #2002b7)",
   "Gravitas Elites": "linear-gradient(180deg, #eadcc8, #814402)",
-  "Firestorm": "linear-gradient(200deg, #ffcc91,rgb(244, 42, 42))",
+  Firestorm: "linear-gradient(200deg, #ffcc91,rgb(244, 42, 42))",
   "Aero Knights": "linear-gradient(180deg, #ffffff, #6e9fb6)",
 };
 
@@ -29,7 +29,7 @@ async function fetchClubsData() {
         "Ether Rox": {
           element: `<img src="../images/clubs_logos/club1_logo.png" alt="Ether Rox" class="club-logo">`,
           description:
-            "The Space/Ether element - representing cosmic energy and boundless possibilities.",
+            "The Ether  <br> Cosmic energy, boundless reach.",
           backgroundColor: "#f9f6fc",
           captainBoy: "Sameer Bobde",
           captainGirl: "Aabriti Saha",
@@ -43,12 +43,12 @@ async function fetchClubsData() {
         "Gravitas Elites": {
           element: `<img src="../images/clubs_logos/club2_logo.PNG" alt="Gravitas Elites" class="club-logo">`,
           description:
-            "The Earth element - representing stability, strength, and grounding.",
+            "The Earth  <br> Steady stance, absolute strength.",
           backgroundColor: "#fcf7f2",
-          captainBoy: "Rapelli Sai Prathik",
+          captainBoy: "Rapelli S Prathik",
           captainGirl: "Kottapalli Navina",
-          viceCaptainBoy: "Mohammad Amjath Khan",
-          viceCaptainGirl: "Sharvari Kartik Sahare",
+          viceCaptainBoy: "Mohd Amjath Khan",
+          viceCaptainGirl: "Sharvari K Sahare",
           captainBoyImage: "👨‍💼",
           captainGirlImage: "👩‍💼",
           viceCaptainBoyImage: "👨‍💼",
@@ -57,7 +57,7 @@ async function fetchClubsData() {
 
         "Hydro Heroes": {
           element: `<img src="../images/clubs_logos/club3_logo.png" alt="Hydro Heroes" class="club-logo">`,
-          description: "Be like water — calm in form, powerful in motion.",
+          description: "Be like water <br> Calm in form, powerful in motion.",
           backgroundColor: "#eef8f6",
           captainBoy: "Vinit Vats",
           captainGirl: "Kanika Gupta",
@@ -68,12 +68,12 @@ async function fetchClubsData() {
           viceCaptainBoyImage: "👨‍💼",
           viceCaptainGirlImage: "👩‍💼",
         },
-        "Firestorm": {
+        Firestorm: {
           element: `<img src="../images/clubs_logos/club4_logo.png" alt="Firestorm" class="club-logo">`,
           description:
-            "The Fire element - representing energy, passion, and determination.",
+            "The Fire  <br> Blazing passion, relentless drive.",
           backgroundColor: "#fff8f8",
-          captainBoy: "Shashi kumar k",
+          captainBoy: "Shashi Kumar ",
           captainGirl: "Kavi Sheoran",
           viceCaptainBoy: "Shivam Yadav",
           viceCaptainGirl: "Aashtha Guptha",
@@ -86,9 +86,9 @@ async function fetchClubsData() {
         "Aero Knights": {
           element: `<img src="../images/clubs_logos/Club_5 logo.png" alt="Aero Knights" class="club-logo">`,
           description:
-            "The Air element - representing freedom, movement, and communication.",
+            "The Air  <br> Swift movement, boundless freedom.",
           backgroundColor: "#f4f9fe",
-          captainBoy: "Divyansh Pratap Singh",
+          captainBoy: "Divyansh P Singh",
           captainGirl: "Sweta Tiwari",
           viceCaptainBoy: "Yash Ingalkar",
           viceCaptainGirl: "Alisha Chandankhede",

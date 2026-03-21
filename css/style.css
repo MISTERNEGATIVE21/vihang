@@ -180,8 +180,8 @@ body {
     gap: 0;
 }
 
-.navbar.scrolled .nav-links li:not(:last-child)::after,
-.navbar.navbar-solid .nav-links li:not(:last-child)::after {
+.navbar.scrolled .nav-links li:not(:last-child):not(:nth-last-child(2))::after,
+.navbar.navbar-solid .nav-links li:not(:last-child):not(:nth-last-child(2))::after {
     content: "|";
     color: rgba(0, 0, 0, 0.2);
     margin: 0 20px;
@@ -397,8 +397,8 @@ body {
     }
 
     /* Hide glass-pill separators on mobile */
-    .navbar.scrolled .nav-links li:not(:last-child)::after,
-    .navbar.navbar-solid .nav-links li:not(:last-child)::after {
+    .navbar.scrolled .nav-links li:not(:last-child):not(:nth-last-child(2))::after,
+    .navbar.navbar-solid .nav-links li:not(:last-child):not(:nth-last-child(2))::after {
         content: none;
     }
 
@@ -873,7 +873,7 @@ body {
         flex-direction: row;
         align-items: center;
         gap: 1rem;
-        padding: 1px 15px;
+        padding: 1px 15px 10px 15px;
     }
 
     .time-box {
@@ -915,7 +915,7 @@ body {
 
     .time-label {
         font-size: 0.7rem;
-        bottom: 5px;
+        bottom: -5.5px;
         letter-spacing: 1px;
     }
 }
@@ -1086,7 +1086,7 @@ body {
 
 .club-card {
     background: white;
-    border-radius: 56px;
+    border-radius: 40px;
     padding: 0rem;
     box-shadow: var(--shadow);
     cursor: pointer;
@@ -1108,6 +1108,16 @@ body {
     height: 40px;
     
 }
+/* Transform Swiper's default rectangular shadows to fit exactly inside the 10px padding and match the 40px rounded corners of the cards. */
+.mySwiper .swiper-slide-shadow-left,
+.mySwiper .swiper-slide-shadow-right {
+    top: 10px !important;
+    left: 10px !important;
+    width: calc(100% - 20px) !important;
+    height: calc(100% - 20px) !important;
+    border-radius: 40px !important;
+}
+
 
 .club-name {
     font-size: 1.5rem;
@@ -2839,7 +2849,7 @@ body {
    ============================================ */
 
 .team-page-section {
-    padding: 5px 0 100px;
+    padding: 100px 0 100px;
     
 }
 
