@@ -1,294 +1,292 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Organizer Dashboard - Vihaang</title>
-    <link rel="icon" type="image/svg+xml" href="../V logo.svg">
-    <link rel="stylesheet" href="../css/style.css">
-    <style>
-        .organizer-dashboard {
-            min-height: 100vh;
-            padding: 120px 20px 20px;
-            background-color: rgb(238, 238, 238);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Organizer Dashboard - Vihaang</title>
+  <link rel="icon" type="image/svg+xml" href="../V logo.svg" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .organizer-dashboard {
+      min-height: 100vh;
+      padding: 120px 20px 20px;
+      background-color: rgb(238, 238, 238);
+    }
 
-        .auth-container,
-        .dashboard-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .auth-container,
+    .dashboard-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-        .auth-section {
-            background: white;
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            max-width: 400px;
-            margin: 3rem auto;
-        }
+    .auth-section {
+      background: white;
+      padding: 3rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      margin: 3rem auto;
+    }
 
-        .auth-section h2 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #333;
-        }
+    .auth-section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #333;
+    }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #333;
-        }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #333;
+    }
 
-        .form-group input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
 
-        .form-group input:focus {
-            border-color: #667eea;
-            outline: none;
-        }
+    .form-group input:focus {
+      border-color: #667eea;
+      outline: none;
+    }
 
-        .btn {
-            width: 100%;
-            padding: 0.75rem;
-            background-color: #141414;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
+    .btn {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #141414;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            background-color: #cac8c8;
-            color: rgb(14, 13, 13);
-        }
+    .btn:hover {
+      transform: translateY(-2px);
+      background-color: #cac8c8;
+      color: rgb(14, 13, 13);
+    }
 
-        .toggle-auth {
-            text-align: center;
-            margin-top: 1rem;
-            color: #666;
-        }
+    .toggle-auth {
+      text-align: center;
+      margin-top: 1rem;
+      color: #666;
+    }
 
-        .toggle-auth a {
-            color: #667eea;
-            cursor: pointer;
-            text-decoration: underline;
-        }
+    .toggle-auth a {
+      color: #667eea;
+      cursor: pointer;
+      text-decoration: underline;
+    }
 
-        .dashboard-header {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .dashboard-header {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .dashboard-header h1 {
-            color: #333;
-        }
+    .dashboard-header h1 {
+      color: #333;
+    }
 
-        .logout-btn {
-            padding: 0.5rem 1.5rem;
-            background: #000000;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-        }
+    .logout-btn {
+      padding: 0.5rem 1.5rem;
+      background: #000000;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
 
-        .update-section {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+    .update-section {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-        .update-section h3 {
-            color: #333;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 0.5rem;
-        }
+    .update-section h3 {
+      color: #333;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 0.5rem;
+    }
 
-        .update-form {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
+    .update-form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
 
-        .form-group select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
 
-        .form-group select:focus {
-            border-color: #667eea;
-            outline: none;
-        }
+    .form-group select:focus {
+      border-color: #667eea;
+      outline: none;
+    }
 
-        .submit-btn {
-            grid-column: 1 / -1;
-            padding: 0.75rem;
-            background: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1rem;
-        }
+    .submit-btn {
+      grid-column: 1 / -1;
+      padding: 0.75rem;
+      background: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+    }
 
-        .submit-btn:hover {
-            background: #45a049;
-        }
+    .submit-btn:hover {
+      background: #45a049;
+    }
 
-        .score-logs {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+    .score-logs {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-        .score-logs h3 {
-            color: #333;
-            margin-bottom: 1.5rem;
-        }
+    .score-logs h3 {
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
 
-        .log-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+    .log-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
 
-        .log-table th {
-            background: #667eea;
-            color: white;
-            padding: 0.75rem;
-            text-align: left;
-        }
+    .log-table th {
+      background: #667eea;
+      color: white;
+      padding: 0.75rem;
+      text-align: left;
+    }
 
-        .log-table td {
-            border-bottom: 1px solid #e0e0e0;
-            padding: 0.75rem;
-        }
+    .log-table td {
+      border-bottom: 1px solid #e0e0e0;
+      padding: 0.75rem;
+    }
 
-        .log-table tr:hover {
-            background: #f5f5f5;
-        }
+    .log-table tr:hover {
+      background: #f5f5f5;
+    }
 
-        .message {
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            display: none;
-        }
+    .message {
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      display: none;
+    }
 
-        .message.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            display: block;
-        }
+    .message.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      display: block;
+    }
 
-        .message.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            display: block;
-        }
+    .message.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+      display: block;
+    }
 
-        @media (max-width: 768px) {
-            .dashboard-header {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: flex-start;
-            }
+    @media (max-width: 768px) {
+      .dashboard-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
 
-            .update-form {
-                grid-template-columns: 1fr;
-            }
+      .update-form {
+        grid-template-columns: 1fr;
+      }
 
-            .log-table {
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+      .log-table {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <div class="organizer-dashboard">
-        <nav class="navbar navbar-solid">
-            <div class="nav-container">
-                <a href="../index.html" class="logo" style="text-decoration: none; color: inherit;"><img
-                        src="../images/Vihang logo.png"></a>
-                <div class="menu-toggle" id="mobile-menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
+  <nav class="navbar navbar-solid">
+    <div class="nav-container">
+      <a href="../index.html" class="logo" style="text-decoration: none; color: inherit">
+        <img src="../images/Vihang logo.png" />
+      </a>
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="clubs.html">Clubs</a></li>
+        <li><a href="leadboard.html">LeadBoard</a></li>
+        <li><a href="team.html">Team</a></li>
+        <!-- <li><a href="sponsors.html">Sponsors</a></li> -->
+        <li class="mobile-login"><a href="organizer-dashboard.html">Login</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="organizer-dashboard.html" class="login-btn">Login</a>
+      </div>
+    </div>
+  </nav>
+  <div class="organizer-dashboard">
+    <!-- Auth Section -->
+    <div id="authSection" class="auth-container">
+      <div class="auth-section">
+        <h2 id="authTitle">Login</h2>
+        <div id="message" class="message"></div>
 
-
-                <ul class="nav-links">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="clubs.html" >Clubs</a></li>
-                    <li><a href="leadboard.html">LeadBoard</a></li>
-                    <li><a href="team.html">Team </a></li>
-                    <li><a href="sponsors.html">Sponsors</a></li>
-                </ul>
-                <div class="nav-actions">
-                    <a href="organizer-dashboard.html" class="login-btn">Login</a>
-                </div>
-            </div>
-        </nav>
-        <!-- Auth Section -->
-        <div id="authSection" class="auth-container">
-            <div class="auth-section">
-                <h2 id="authTitle">Login</h2>
-                <div id="message" class="message"></div>
-
-                <!-- Login Form -->
-                <div id="loginForm">
-                    <div class="form-group">
-                        <label for="loginEmail">Email</label>
-                        <input type="email" id="loginEmail" placeholder="Enter your email">
-                    </div>
-                    <div class="form-group">
-                        <label for="loginPassword">Password</label>
-                        <input type="password" id="loginPassword" placeholder="Enter your password">
-                    </div>
-                    <button class="btn" onclick="handleLogin()">Login</button>
-                    <!-- 
+        <!-- Login Form -->
+        <div id="loginForm">
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" placeholder="Enter your email" />
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" placeholder="Enter your password" />
+          </div>
+          <button class="btn" onclick="handleLogin()">Login</button>
+          <!-- 
                     <div class="toggle-auth">
                         Don't have an account? <a onclick="toggleAuthForm()">Register</a>
                     </div>   -->
-                </div>
+        </div>
 
-              
-
-                <!-- 
+        <!-- 
                 <div id="registerForm" style="display: none;">
                     <div class="form-group">
                         <label for="regName">Name</label>
@@ -308,443 +306,548 @@
                     </div>
                 </div>
                 Register Form -->
-            </div>
-        </div>
-
-        <!-- Dashboard Section -->
-        <div id="dashboardSection" class="dashboard-container" style="display: none;">
-            <div class="dashboard-header">
-                <h1>🏆 Organizer Dashboard</h1>
-                <button class="logout-btn" onclick="handleLogout()">Logout</button>
-            </div>
-
-            <div id="message" class="message"></div>
-
-            <!-- Update Club Scores -->
-            <div class="update-section">
-                <h3>Update Club Scores (Individual Events)</h3>
-                <div class="update-form">
-                    <div class="form-group">
-                        <label for="clubSelect">Select Club</label>
-                        <select id="clubSelect">
-                            <option value="">-- Choose a club --</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="scoreType">Score Type</label>
-                        <select id="scoreType" onchange="updateEventDropdown()">
-                            <option value="sports">Sports Points</option>
-                            <option value="culture">Culture Points</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="eventSelect">Select Event/Sport</label>
-                        <select id="eventSelect">
-                            <option value="">-- Choose an event --</option>
-                        </select>
-                    </div>
-                    <div class="form-group" id="genderGroup">
-                        <label for="genderSelect">Select Gender</label>
-                        <select id="genderSelect">
-                            <option value="">-- Choose Gender --</option>
-                            <option value="male">Boys</option>
-                            <option value="female">Girls</option>
-                            <option value="mixed">Mixed</option>
-                            <option value="neutral">Neutral/N/A</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="pointsInput">Points to Add/Subtract</label>
-                        <input type="number" id="pointsInput" placeholder="Enter points (use '-' to subtract)">
-                    </div>
-                    <button class="submit-btn" onclick="handleScoreUpdate()">Update Score</button>
-                </div>
-            </div>
-
-            <!-- Recent Score Updates -->
-            <div class="score-logs">
-                <h3>Recent Score Updates</h3>
-
-                <table class="log-table">
-                    <thead>
-                        <tr>
-                            <th>Club</th>
-                            <th>Type</th>
-                            <th>Event</th>
-                            <th>Points</th>
-                            <th>Updated By</th>
-                            <th>Time</th>
-                        </tr>
-                    </thead>
-                    <tbody id="logsTableBody">
-                        <tr>
-                            <td colspan="6" style="text-align: center; color: #999;">Loading...</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+      </div>
     </div>
 
-    <!-- Move Footer Here -->
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <a href="index.html" class="footer-logo" style="text-decoration: none; color: inherit;">Vihang
-                        2026</a>
-                    <p>PG Sports and Culture in VNIT - where elements meet.</p>
-                </div>
+    <!-- Dashboard Section -->
+    <div id="dashboardSection" class="dashboard-container" style="display: none">
+      <div class="dashboard-header">
+        <h1>🏆 Organizer Dashboard</h1>
+        <button class="logout-btn" onclick="handleLogout()">Logout</button>
+      </div>
 
-                <div class="footer-nav">
-                    <h4>QUICK LINKS</h4>
-                    <ul class="footer-links">
-                        <li><a href="#" target="_blank">📄 Schedule of Vihang (PDF)</a></li>
-                        <li><a href="https://vnit.ac.in" target="_blank">🌐 VNIT Website</a></li>
-                        <li><a href="team.html">👥 About Core Committee</a></li>
-                    </ul>
-                </div>
+      <div id="message" class="message"></div>
 
-                <div class="footer-contact">
-                    <h4>CONTACT INFO</h4>
-                    <p>📍 VNIT Nagpur</p>
-                    <p>✉️ <a
-                            href="mailto:pgsportsandcultsecretary@students.vnit.ac.in">pgsportsandcultsecretary@students.vnit.ac.in</a>
-                    </p>
-                    <p>📞 +91 9876543210</p>
-                    <div class="footer-sponsor">
-                        <small>❤️ Sponsored By</small>
-                        <a href="sponsors.html" class="sponsor-button">Our Sponsors ↗</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 <strong>Vihang</strong>. All rights reserved.</p>
-                <p>Developed and designed by Pranav and Nikhil | Deployed by Rajarshi</p>
-            </div>
+      <!-- Update Club Scores -->
+      <div class="update-section">
+        <h3>Update Club Scores (Individual Events)</h3>
+        <div class="update-form">
+          <div class="form-group">
+            <label for="clubSelect">Select Club</label>
+            <select id="clubSelect">
+              <option value="">-- Choose a club --</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="scoreType">Score Type</label>
+            <select id="scoreType" onchange="updateEventDropdown()">
+              <option value="sports">Sports Points</option>
+              <option value="culture">Culture Points</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="eventSelect">Select Event/Sport</label>
+            <select id="eventSelect">
+              <option value="">-- Choose an event --</option>
+            </select>
+          </div>
+          <div class="form-group" id="genderGroup">
+            <label for="genderSelect">Select Gender</label>
+            <select id="genderSelect">
+              <option value="">-- Choose Gender --</option>
+              <option value="male">Boys</option>
+              <option value="female">Girls</option>
+              <option value="mixed">Mixed</option>
+              <option value="neutral">Neutral/N/A</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="pointsInput">Points to Add/Subtract</label>
+            <input type="number" id="pointsInput" placeholder="Enter points (use '-' to subtract)" />
+          </div>
+          <button class="submit-btn" onclick="handleScoreUpdate()">
+            Update Score
+          </button>
         </div>
-    </footer>
+      </div>
 
-    <script>
-        // Configuration
-       
-        // For development:
-        const API_BASE_URL = 'https://vihang-woya.onrender.com/api';
+      <!-- Recent Score Updates -->
+      <div class="score-logs">
+        <h3>Recent Score Updates</h3>
 
-        const SPORTS_DATA = [
-            // Outdoor
-            { name: 'Cricket', type: 'Outdoor', genders: ['male', 'female'] },
-            { name: 'Football', type: 'Outdoor', genders: ['male'] },
-            { name: 'Kho-Kho', type: 'Outdoor', genders: ['male', 'female'] },
-            { name: 'Throw Ball', type: 'Outdoor', genders: ['female'] },
-            { name: 'Basketball', type: 'Outdoor', genders: ['male', 'female'] },
-            { name: 'Volleyball', type: 'Outdoor', genders: ['male', 'female'] },
-            { name: 'Handball', type: 'Outdoor', genders: ['male'] },
-            { name: 'Box Cricket', type: 'Outdoor', genders: ['neutral'] },
-            { name: 'Tug of War', type: 'Outdoor', genders: ['neutral'] },
-            { name: 'Swimming', type: 'Outdoor', genders: ['male', 'female'] },
-            { name: 'Vihang Letters', type: 'Outdoor', genders: ['neutral'] },
-            { name: 'Inaugural March Past', type: 'Outdoor', genders: ['neutral'] },
-            // Indoor
-            { name: 'Badminton', type: 'Indoor', genders: ['male', 'female', 'mixed'] },
-            { name: 'Table Tennis', type: 'Indoor', genders: ['male', 'female'] },
-            { name: 'Carrom', type: 'Indoor', genders: ['male', 'female'] },
-            { name: 'Chess', type: 'Indoor', genders: ['male', 'female'] },
-            { name: 'Powerlifting', type: 'Indoor', genders: ['male'] },
-            { name: 'Yoga', type: 'Indoor', genders: ['neutral'] },
-            // E-Sports
-            { name: 'BGMI', type: 'E-Sports', genders: ['neutral'] },
-            { name: 'Valorant', type: 'E-Sports', genders: ['neutral'] },
-            // Athletics
-            { name: 'Discus Throw', type: 'Athletics', genders: ['male', 'female'] },
-            { name: 'Javelin Throw', type: 'Athletics', genders: ['male', 'female'] },
-            { name: 'Marathon', type: 'Athletics', genders: ['male', 'female'] },
-            { name: 'Relay 4x100m', type: 'Athletics', genders: ['male'] },
-            { name: 'Shot Put', type: 'Athletics', genders: ['male', 'female'] },
-            { name: 'Slow Cycling', type: 'Athletics', genders: ['male', 'female'] },
-            { name: 'Sprint 100m', type: 'Athletics', genders: ['male', 'female'] },
-            { name: 'Sprint 200m', type: 'Athletics', genders: ['male', 'female'] },
-            { name: 'Triathlon Relay', type: 'Athletics', genders: ['neutral'] },
-            { name: 'Long Jump', type: 'Athletics', genders: ['male'] },
-            { name: 'Swimming 100m', type: 'Athletics', genders: ['male'] }
-        ];
-        const SPORTS = SPORTS_DATA.map(s => s.name);
-        const CULTURE_EVENTS = [
-            'Debate (English)', 'Debate (Hindi)', 'Poetry (English)', 'Poetry (Hindi)',
-            'Quiz', 'Pic of the Day', 'Reel of the Day', 'Meme of the Day',
-            'Pic of Vihang', 'Flash Mob', 'Face Painting', 'Short Film',
-            'Instrumental', 'Solo Dance', 'Duo Dance', 'Group Dance',
-            'Solo Singing', 'Duet Singing', 'Group Singing', 'Rangoli',
-            'Poster Making', 'Treasure Hunt', 'Vihang Letters'
-        ];
+        <table class="log-table">
+          <thead>
+            <tr>
+              <th>Club</th>
+              <th>Type</th>
+              <th>Event</th>
+              <th>Points</th>
+              <th>Updated By</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="logsTableBody">
+            <tr>
+              <td colspan="6" style="text-align: center; color: #999">
+                Loading...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
-        let authToken = localStorage.getItem('orgToken');
-        let clubs = [];
+  <!-- Move Footer Here -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="../index.html" class="footer-logo" style="text-decoration: none; color: inherit">Vihang 2026</a>
+          <p>PG Sports and Culture in VNIT - where elements meet.</p>
+        </div>
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function () {
-            if (authToken) {
-                showDashboard();
-                loadClubs();
-                loadScoreLogs();
-                updateEventDropdown(); // Initialize event dropdown
-            } else {
-                showAuthForm();
-            }
+        <div class="footer-nav">
+          <h4>QUICK LINKS</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="https://jumpshare.com/share/SSP4x3wAoRq5HofGS7q8" target="_blank">
+                <svg class="footer-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="vertical-align:middle;margin-right:6px;">
+                  <rect x="4" y="2" width="16" height="20" rx="2" />
+                  <line x1="9" y1="8" x2="15" y2="8" />
+                  <line x1="9" y1="12" x2="15" y2="12" />
+                  <line x1="9" y1="16" x2="13" y2="16" />
+                </svg>
+                Vihang Rule book (PDF)
+              </a>
+            </li>
+            <li>
+              <a href="https://vnit.ac.in" target="_blank">
+                <svg class="footer-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="vertical-align:middle;margin-right:6px;">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M2 12h20" />
+                  <path
+                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z" />
+                </svg>
+                VNIT Website
+              </a>
+            </li>
+            <li>
+              <a href="team.html">
+                <svg class="footer-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="vertical-align:middle;margin-right:6px;">
+                  <circle cx="9" cy="7" r="4" />
+                  <circle cx="17" cy="7" r="4" />
+                  <path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2" />
+                </svg>
+                About Core Committee
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h4>CONTACT INFO</h4>
+          <p>
+            <svg class="footer-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="vertical-align:middle;margin-right:6px;">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            VNIT Nagpur
+          </p>
+          <p>
+            <svg class="footer-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="vertical-align:middle;margin-right:6px;">
+              <path d="M4 4h16v16H4z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            <a
+              href="mailto:pgsportsandcultsecretary@students.vnit.ac.in">pgsportsandcultsecretary@students.vnit.ac.in</a>
+          </p>
+          <p>
+            <svg class="footer-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="vertical-align:middle;margin-right:6px;">
+              <path
+                d="M22 16.92V21a2 2 0 0 1-2.18 2A19.72 19.72 0 0 1 3 5.18 2 2 0 0 1 5 3h4.09a2 2 0 0 1 2 1.72c.13 1.13.37 2.23.72 3.28a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6.29 6.29l1.27-1.27a2 2 0 0 1 2.11-.45c1.05.35 2.15.59 3.28.72A2 2 0 0 1 21 18.91V21z" />
+            </svg>
+            +91 9876543210
+          </p>
+          <div class="footer-sponsor"></div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 <strong>Vihang</strong>. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Configuration
+
+    // For development:
+    const API_BASE_URL = "https://vihang-woya.onrender.com/api";
+
+    const SPORTS_DATA = [
+      // Outdoor
+      { name: "Cricket", type: "Outdoor", genders: ["male", "female"] },
+      { name: "Football", type: "Outdoor", genders: ["male"] },
+      { name: "Kho-Kho", type: "Outdoor", genders: ["male", "female"] },
+      { name: "Throw Ball", type: "Outdoor", genders: ["female"] },
+      { name: "Basketball", type: "Outdoor", genders: ["male", "female"] },
+      { name: "Volleyball", type: "Outdoor", genders: ["male", "female"] },
+      { name: "Handball", type: "Outdoor", genders: ["male"] },
+      { name: "Box Cricket", type: "Outdoor", genders: ["neutral"] },
+      { name: "Tug of War", type: "Outdoor", genders: ["neutral"] },
+      { name: "Swimming", type: "Outdoor", genders: ["male", "female"] },
+      { name: "Vihang Letters", type: "Outdoor", genders: ["neutral"] },
+      { name: "Inaugural March Past", type: "Outdoor", genders: ["neutral"] },
+      // Indoor
+      {
+        name: "Badminton",
+        type: "Indoor",
+        genders: ["male", "female", "mixed"],
+      },
+      { name: "Table Tennis", type: "Indoor", genders: ["male", "female"] },
+      { name: "Carrom", type: "Indoor", genders: ["male", "female"] },
+      { name: "Chess", type: "Indoor", genders: ["male", "female"] },
+      { name: "Powerlifting", type: "Indoor", genders: ["male"] },
+      { name: "Yoga", type: "Indoor", genders: ["neutral"] },
+      // E-Sports
+      { name: "BGMI", type: "E-Sports", genders: ["neutral"] },
+      { name: "Valorant", type: "E-Sports", genders: ["neutral"] },
+      // Athletics
+      {
+        name: "Discus Throw",
+        type: "Athletics",
+        genders: ["male", "female"],
+      },
+      {
+        name: "Javelin Throw",
+        type: "Athletics",
+        genders: ["male", "female"],
+      },
+      { name: "Marathon", type: "Athletics", genders: ["male", "female"] },
+      { name: "Relay 4x100m", type: "Athletics", genders: ["male"] },
+      { name: "Shot Put", type: "Athletics", genders: ["male", "female"] },
+      {
+        name: "Slow Cycling",
+        type: "Athletics",
+        genders: ["male", "female"],
+      },
+      { name: "Sprint 100m", type: "Athletics", genders: ["male", "female"] },
+      { name: "Sprint 200m", type: "Athletics", genders: ["male", "female"] },
+      { name: "Triathlon Relay", type: "Athletics", genders: ["neutral"] },
+      { name: "Long Jump", type: "Athletics", genders: ["male"] },
+      { name: "Swimming 100m", type: "Athletics", genders: ["male"] },
+    ];
+    const SPORTS = SPORTS_DATA.map((s) => s.name);
+    const CULTURE_EVENTS = [
+      "Debate (English)",
+      "Debate (Hindi)",
+      "Poetry (English)",
+      "Poetry (Hindi)",
+      "Quiz",
+      "Pic of the Day",
+      "Reel of the Day",
+      "Meme of the Day",
+      "Pic of Vihang",
+      "Flash Mob",
+      "Face Painting",
+      "Short Film",
+      "Instrumental",
+      "Solo Dance",
+      "Duo Dance",
+      "Group Dance",
+      "Solo Singing",
+      "Duet Singing",
+      "Group Singing",
+      "Rangoli",
+      "Poster Making",
+      "Treasure Hunt",
+      "Vihang Letters",
+    ];
+
+    let authToken = localStorage.getItem("orgToken");
+    let clubs = [];
+
+    // Initialize
+    document.addEventListener("DOMContentLoaded", function () {
+      if (authToken) {
+        showDashboard();
+        loadClubs();
+        loadScoreLogs();
+        updateEventDropdown(); // Initialize event dropdown
+      } else {
+        showAuthForm();
+      }
+    });
+
+    function toggleAuthForm() {
+      const loginForm = document.getElementById("loginForm");
+      const registerForm = document.getElementById("registerForm");
+      const authTitle = document.getElementById("authTitle");
+
+      if (loginForm.style.display === "none") {
+        loginForm.style.display = "block";
+        registerForm.style.display = "none";
+        authTitle.textContent = "Login";
+      } else {
+        loginForm.style.display = "none";
+        registerForm.style.display = "block";
+        authTitle.textContent = "Register";
+      }
+    }
+
+    function showAuthForm() {
+      document.getElementById("authSection").style.display = "block";
+      document.getElementById("dashboardSection").style.display = "none";
+    }
+
+    function showDashboard() {
+      document.getElementById("authSection").style.display = "none";
+      document.getElementById("dashboardSection").style.display = "block";
+    }
+
+    function updateEventDropdown() {
+      const scoreType = document.getElementById("scoreType").value;
+      const eventSelect = document.getElementById("eventSelect");
+      const genderGroup = document.getElementById("genderGroup");
+      const genderSelect = document.getElementById("genderSelect");
+
+      const events = scoreType === "sports" ? SPORTS : CULTURE_EVENTS;
+
+      // Show gender box only for sports
+      if (scoreType === "sports") {
+        genderGroup.style.display = "block";
+      } else {
+        genderGroup.style.display = "none";
+      }
+
+      eventSelect.innerHTML =
+        '<option value="">-- Choose an event --</option>';
+      events.forEach((event) => {
+        const option = document.createElement("option");
+        option.value = event;
+        option.textContent = event;
+        eventSelect.appendChild(option);
+      });
+
+      // Auto-select gender when sport changes
+      eventSelect.onchange = function () {
+        if (scoreType !== "sports") return;
+        const selectedSport = SPORTS_DATA.find(
+          (s) => s.name === eventSelect.value,
+        );
+        if (!selectedSport) return;
+
+        const genders = selectedSport.genders;
+        // Reset gender options to only relevant ones
+        genderSelect.innerHTML =
+          '<option value="">-- Choose Gender --</option>';
+        const genderLabels = {
+          male: "Boys",
+          female: "Girls",
+          mixed: "Mixed",
+          neutral: "Neutral/N/A",
+        };
+        genders.forEach((g) => {
+          const opt = document.createElement("option");
+          opt.value = g;
+          opt.textContent = genderLabels[g] || g;
+          genderSelect.appendChild(opt);
         });
 
-        function toggleAuthForm() {
-            const loginForm = document.getElementById('loginForm');
-            const registerForm = document.getElementById('registerForm');
-            const authTitle = document.getElementById('authTitle');
+        // Auto-select if only one gender
+        if (genders.length === 1) {
+          genderSelect.value = genders[0];
+          genderGroup.style.display = "none";
+        } else {
+          genderSelect.value = "";
+          genderGroup.style.display = "block";
+        }
+      };
+    }
 
-            if (loginForm.style.display === 'none') {
-                loginForm.style.display = 'block';
-                registerForm.style.display = 'none';
-                authTitle.textContent = 'Login';
-            } else {
-                loginForm.style.display = 'none';
-                registerForm.style.display = 'block';
-                authTitle.textContent = 'Register';
-            }
+    async function handleLogin() {
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+
+      if (!email || !password) {
+        showMessage("Please fill all fields", "error");
+        return;
+      }
+
+      try {
+        const response = await fetch(`${API_BASE_URL}/auth/login`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          authToken = data.token;
+          localStorage.setItem("orgToken", authToken);
+          showMessage("Login successful!", "success");
+          setTimeout(() => {
+            showDashboard();
+            loadClubs();
+            loadScoreLogs();
+            updateEventDropdown();
+          }, 500);
+        } else {
+          showMessage(data.message || "Login failed", "error");
+        }
+      } catch (error) {
+        showMessage("Error: " + error.message, "error");
+      }
+    }
+
+    async function handleRegister() {
+      const name = document.getElementById("regName").value;
+      const email = document.getElementById("regEmail").value;
+      const password = document.getElementById("regPassword").value;
+
+      if (!name || !email || !password) {
+        showMessage("Please fill all fields", "error");
+        return;
+      }
+
+      try {
+        const response = await fetch(`${API_BASE_URL}/auth/register`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, password }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          authToken = data.token;
+          localStorage.setItem("orgToken", authToken);
+          showMessage("Registration successful!", "success");
+          setTimeout(() => {
+            showDashboard();
+            loadClubs();
+            loadScoreLogs();
+            updateEventDropdown();
+          }, 500);
+        } else {
+          showMessage(data.message || "Registration failed", "error");
+        }
+      } catch (error) {
+        showMessage("Error: " + error.message, "error");
+      }
+    }
+
+    function handleLogout() {
+      authToken = null;
+      localStorage.removeItem("orgToken");
+      showAuthForm();
+      document.getElementById("loginForm").style.display = "block";
+      document.getElementById("registerForm").style.display = "none";
+    }
+
+    async function loadClubs() {
+      try {
+        const response = await fetch(`${API_BASE_URL}/clubs`);
+        clubs = await response.json();
+
+        const select = document.getElementById("clubSelect");
+        select.innerHTML = '<option value="">-- Choose a club --</option>';
+
+        clubs.forEach((club) => {
+          const option = document.createElement("option");
+          option.value = club._id;
+          option.textContent = club.name;
+          select.appendChild(option);
+        });
+      } catch (error) {
+        console.error("Error loading clubs:", error);
+      }
+    }
+
+    async function handleScoreUpdate() {
+      const clubId = document.getElementById("clubSelect").value;
+      const scoreType = document.getElementById("scoreType").value;
+      const eventName = document.getElementById("eventSelect").value;
+      const genderValue = document.getElementById("genderSelect").value;
+      const points = parseInt(document.getElementById("pointsInput").value);
+
+      if (!clubId || !eventName || !points) {
+        showMessage("Please fill all fields", "error");
+        return;
+      }
+      if (scoreType === "sports" && !genderValue) {
+        showMessage("Please select Male/Female for sports", "error");
+        return;
+      }
+
+      // Determine endpoint and parameter name based on score type
+      let endpoint, reqBody;
+      if (scoreType === "sports") {
+        endpoint = `${API_BASE_URL}/clubs/${clubId}/add-sport-points`;
+        reqBody = { sport: eventName, gender: genderValue, points };
+      } else {
+        endpoint = `${API_BASE_URL}/clubs/${clubId}/add-culture-points`;
+        reqBody = { event: eventName, points };
+      }
+
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${authToken}`,
+          },
+          body: JSON.stringify(reqBody),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          showMessage(
+            `${scoreType === "sports" ? "Sports" : "Culture"} points updated successfully!`,
+            "success",
+          );
+          document.getElementById("clubSelect").value = "";
+          document.getElementById("pointsInput").value = "";
+          document.getElementById("eventSelect").value = "";
+          loadScoreLogs();
+        } else {
+          showMessage(data.message || "Update failed", "error");
+        }
+      } catch (error) {
+        showMessage("Error: " + error.message, "error");
+      }
+    }
+
+    async function loadScoreLogs() {
+      try {
+        const response = await fetch(`${API_BASE_URL}/score-logs`, {
+          headers: { Authorization: `Bearer ${authToken}` },
+        });
+
+        const logs = await response.json();
+        const tbody = document.getElementById("logsTableBody");
+        tbody.innerHTML = "";
+
+        if (logs.length === 0) {
+          tbody.innerHTML =
+            '<tr><td colspan="6" style="text-align: center; color: #999;">No updates yet</td></tr>';
+          return;
         }
 
-        function showAuthForm() {
-            document.getElementById('authSection').style.display = 'block';
-            document.getElementById('dashboardSection').style.display = 'none';
-        }
-
-        function showDashboard() {
-            document.getElementById('authSection').style.display = 'none';
-            document.getElementById('dashboardSection').style.display = 'block';
-        }
-
-        function updateEventDropdown() {
-            const scoreType = document.getElementById('scoreType').value;
-            const eventSelect = document.getElementById('eventSelect');
-            const genderGroup = document.getElementById('genderGroup');
-            const genderSelect = document.getElementById('genderSelect');
-
-            const events = scoreType === 'sports' ? SPORTS : CULTURE_EVENTS;
-
-            // Show gender box only for sports
-            if (scoreType === 'sports') {
-                genderGroup.style.display = 'block';
-            } else {
-                genderGroup.style.display = 'none';
-            }
-
-            eventSelect.innerHTML = '<option value="">-- Choose an event --</option>';
-            events.forEach(event => {
-                const option = document.createElement('option');
-                option.value = event;
-                option.textContent = event;
-                eventSelect.appendChild(option);
-            });
-
-            // Auto-select gender when sport changes
-            eventSelect.onchange = function () {
-                if (scoreType !== 'sports') return;
-                const selectedSport = SPORTS_DATA.find(s => s.name === eventSelect.value);
-                if (!selectedSport) return;
-
-                const genders = selectedSport.genders;
-                // Reset gender options to only relevant ones
-                genderSelect.innerHTML = '<option value="">-- Choose Gender --</option>';
-                const genderLabels = { male: 'Boys', female: 'Girls', mixed: 'Mixed', neutral: 'Neutral/N/A' };
-                genders.forEach(g => {
-                    const opt = document.createElement('option');
-                    opt.value = g;
-                    opt.textContent = genderLabels[g] || g;
-                    genderSelect.appendChild(opt);
-                });
-
-                // Auto-select if only one gender
-                if (genders.length === 1) {
-                    genderSelect.value = genders[0];
-                    genderGroup.style.display = 'none';
-                } else {
-                    genderSelect.value = '';
-                    genderGroup.style.display = 'block';
-                }
-            };
-        }
-
-        async function handleLogin() {
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-
-            if (!email || !password) {
-                showMessage('Please fill all fields', 'error');
-                return;
-            }
-
-            try {
-                const response = await fetch(`${API_BASE_URL}/auth/login`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password })
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    authToken = data.token;
-                    localStorage.setItem('orgToken', authToken);
-                    showMessage('Login successful!', 'success');
-                    setTimeout(() => {
-                        showDashboard();
-                        loadClubs();
-                        loadScoreLogs();
-                        updateEventDropdown();
-                    }, 500);
-                } else {
-                    showMessage(data.message || 'Login failed', 'error');
-                }
-            } catch (error) {
-                showMessage('Error: ' + error.message, 'error');
-            }
-        }
-
-        async function handleRegister() {
-            const name = document.getElementById('regName').value;
-            const email = document.getElementById('regEmail').value;
-            const password = document.getElementById('regPassword').value;
-
-            if (!name || !email || !password) {
-                showMessage('Please fill all fields', 'error');
-                return;
-            }
-
-            try {
-                const response = await fetch(`${API_BASE_URL}/auth/register`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, email, password })
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    authToken = data.token;
-                    localStorage.setItem('orgToken', authToken);
-                    showMessage('Registration successful!', 'success');
-                    setTimeout(() => {
-                        showDashboard();
-                        loadClubs();
-                        loadScoreLogs();
-                        updateEventDropdown();
-                    }, 500);
-                } else {
-                    showMessage(data.message || 'Registration failed', 'error');
-                }
-            } catch (error) {
-                showMessage('Error: ' + error.message, 'error');
-            }
-        }
-
-        function handleLogout() {
-            authToken = null;
-            localStorage.removeItem('orgToken');
-            showAuthForm();
-            document.getElementById('loginForm').style.display = 'block';
-            document.getElementById('registerForm').style.display = 'none';
-        }
-
-        async function loadClubs() {
-            try {
-                const response = await fetch(`${API_BASE_URL}/clubs`);
-                clubs = await response.json();
-
-                const select = document.getElementById('clubSelect');
-                select.innerHTML = '<option value="">-- Choose a club --</option>';
-
-                clubs.forEach(club => {
-                    const option = document.createElement('option');
-                    option.value = club._id;
-                    option.textContent = club.name;
-                    select.appendChild(option);
-                });
-            } catch (error) {
-                console.error('Error loading clubs:', error);
-            }
-        }
-
-        async function handleScoreUpdate() {
-            const clubId = document.getElementById('clubSelect').value;
-            const scoreType = document.getElementById('scoreType').value;
-            const eventName = document.getElementById('eventSelect').value;
-            const genderValue = document.getElementById('genderSelect').value;
-            const points = parseInt(document.getElementById('pointsInput').value);
-
-            if (!clubId || !eventName || !points) {
-                showMessage('Please fill all fields', 'error');
-                return;
-            }
-            if (scoreType === 'sports' && !genderValue) {
-                showMessage('Please select Male/Female for sports', 'error');
-                return;
-            }
-
-            // Determine endpoint and parameter name based on score type
-            let endpoint, reqBody;
-            if (scoreType === 'sports') {
-                endpoint = `${API_BASE_URL}/clubs/${clubId}/add-sport-points`;
-                reqBody = { sport: eventName, gender: genderValue, points };
-            } else {
-                endpoint = `${API_BASE_URL}/clubs/${clubId}/add-culture-points`;
-                reqBody = { event: eventName, points };
-            }
-
-            try {
-                const response = await fetch(endpoint, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${authToken}`
-                    },
-                    body: JSON.stringify(reqBody)
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    showMessage(`${scoreType === 'sports' ? 'Sports' : 'Culture'} points updated successfully!`, 'success');
-                    document.getElementById('clubSelect').value = '';
-                    document.getElementById('pointsInput').value = '';
-                    document.getElementById('eventSelect').value = '';
-                    loadScoreLogs();
-                } else {
-                    showMessage(data.message || 'Update failed', 'error');
-                }
-            } catch (error) {
-                showMessage('Error: ' + error.message, 'error');
-            }
-        }
-
-        async function loadScoreLogs() {
-            try {
-                const response = await fetch(`${API_BASE_URL}/score-logs`, {
-                    headers: { 'Authorization': `Bearer ${authToken}` }
-                });
-
-                const logs = await response.json();
-                const tbody = document.getElementById('logsTableBody');
-                tbody.innerHTML = '';
-
-                if (logs.length === 0) {
-                    tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: #999;">No updates yet</td></tr>';
-                    return;
-                }
-
-                logs.forEach(log => {
-                    const row = document.createElement('tr');
-                    const date = new Date(log.timestamp).toLocaleString();
-                    const evtLabel = log.gender ? `${log.eventName} (${log.gender})` : log.eventName;
-                    const pointSymbol = log.pointsAdded > 0 ? '+' : '';
-                    const pointColor = log.pointsAdded >= 0 ? '#4CAF50' : '#f44336';
-                    row.innerHTML = `
+        logs.forEach((log) => {
+          const row = document.createElement("tr");
+          const date = new Date(log.timestamp).toLocaleString();
+          const evtLabel = log.gender
+            ? `${log.eventName} (${log.gender})`
+            : log.eventName;
+          const pointSymbol = log.pointsAdded > 0 ? "+" : "";
+          const pointColor = log.pointsAdded >= 0 ? "#4CAF50" : "#f44336";
+          row.innerHTML = `
                         <td><strong>${log.club}</strong></td>
                         <td>${log.eventType}</td>
                         <td>${evtLabel}</td>
@@ -752,29 +855,29 @@
                         <td>${log.updatedBy}</td>
                         <td>${date}</td>
                     `;
-                    tbody.appendChild(row);
-                });
-            } catch (error) {
-                console.error('Error loading logs:', error);
-            }
-        }
+          tbody.appendChild(row);
+        });
+      } catch (error) {
+        console.error("Error loading logs:", error);
+      }
+    }
 
-        function showMessage(message, type) {
-            const messageDiv = document.getElementById('message');
-            messageDiv.textContent = message;
-            messageDiv.className = `message ${type}`;
-            setTimeout(() => {
-                messageDiv.className = 'message';
-            }, 5000);
-        }
+    function showMessage(message, type) {
+      const messageDiv = document.getElementById("message");
+      messageDiv.textContent = message;
+      messageDiv.className = `message ${type}`;
+      setTimeout(() => {
+        messageDiv.className = "message";
+      }, 5000);
+    }
 
-        // Auto-refresh logs every 10 seconds
-        setInterval(() => {
-            if (authToken) {
-                loadScoreLogs();
-            }
-        }, 10000);
-    </script>
+    // Auto-refresh logs every 10 seconds
+    setInterval(() => {
+      if (authToken) {
+        loadScoreLogs();
+      }
+    }, 10000);
+  </script>
 </body>
 
 </html>
