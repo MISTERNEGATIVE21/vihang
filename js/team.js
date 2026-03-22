@@ -33,9 +33,9 @@ function renderTeamData() {
 
     // Define the categories that belong in the Faculty/Profs tab
     const profCategories = [
-        'Director VNIT', 'Director Vnit', 
-        'Dean', 'Associate Dean', 
-        'Sports Officer', 'Professors In-Charge'
+        'Director VNIT', 'Director Vnit',
+        'Dean', 'Professors In-Charge', 'Associate Dean',
+        'Sports Officer'
     ];
 
     // Filter data based on active tab
@@ -110,7 +110,7 @@ function renderTeamData() {
                         <div class="team-member-details">
                             <h3 class="team-member-name">${member.Name}</h3>
                             <p class="team-member-role">${category === 'Professors In-Charge' ? '' : category}</p>
-                            ${member.sub_cat ? `<p class="team-member-subrole" style="font-size: 0.9em; opacity: 0.8; margin-top: 5px;">${member.sub_cat}</p>` : ''}
+                            ${member.sub_cat ? `<p class="team-member-subrole" style="font-size: 0.9em; color: #ff6b6b; opacity: 0.8; margin-top: 5px;">${member.sub_cat}</p>` : ''}
                         </div>
                     </div>
             `;

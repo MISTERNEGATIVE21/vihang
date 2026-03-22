@@ -470,7 +470,7 @@ body {
 
 .presents-vnit {
   font-size: 3rem;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 2px;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
   line-height: 1;
@@ -1034,7 +1034,7 @@ body {
 
 .club-card {
   background: white;
-  border-radius: 40px;
+  border-radius: 25px;
   padding: 0rem;
   box-shadow: var(--shadow);
   cursor: pointer;
@@ -1104,6 +1104,7 @@ body {
   font-size: 1.1rem;
   text-align: center;
   width: 100%;
+  margin-bottom: 15px;
 }
 
 .points-label {
@@ -1149,7 +1150,7 @@ body {
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   margin-bottom: 2rem;
-  border-left: 8px solid #f7b9b9;
+ 
 }
 
 .detail-header {
@@ -1899,13 +1900,7 @@ body {
   transition: all 0.3s ease;
 }
 
-.member-card.primary {
-  border-top: 4px solid var(--primary-color);
-}
 
-.member-card.secondary {
-  border-top: 4px solid var(--secondary-color);
-}
 
 .member-card:hover {
   transform: translateY(-5px);
